@@ -1,9 +1,3 @@
-/*
- * @projectName leetcode0
- * @package PACKAGE_NAME
- * @className PACKAGE_NAME._027_RemoveElement
- * @copyright Copyright 2018 Thunisoft, Inc. All rights reserved.
- */
 
 /**
  * _027_RemoveElement
@@ -37,21 +31,17 @@ public class _027_RemoveElement {
 */
 
 	public int removeElement(int[] nums, int val) {
-		if (nums == null || nums.length == 0) {
-			return 0;
-		}
-		int index = 0;
+		int j = 0;
 		for (int i = 0; i < nums.length; i++) {
 			if (nums[i] != val) {
-				nums[index] = nums[i];
-				index++;
+				nums[j++] = nums[i];
 			}
 		}
-		return index;
+		return j;
 	}
 
 	/**
-	 * 结果无序
+	 * 双指针，结果无序
 	 */
 	public int removeElement2(int[] nums, int val) {
 		if (nums == null || nums.length == 0) {
