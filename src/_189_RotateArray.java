@@ -1,9 +1,3 @@
-/*
- * @projectName leetcode0
- * @package PACKAGE_NAME
- * @className PACKAGE_NAME._189_RotateArray
- * @copyright Copyright 2018 Thunisoft, Inc. All rights reserved.
- */
 
 import java.util.Arrays;
 
