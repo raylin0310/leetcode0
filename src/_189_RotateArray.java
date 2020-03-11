@@ -44,6 +44,10 @@ public class _189_RotateArray {
 	[5,6,7,1,2,3,4]
 	*/
 
+	/**
+	 * 挨个儿位移 时间复杂度 kn
+	 */
+
 	public void rotate(int[] nums, int k) {
 		if (k < 1) {
 			return;
@@ -61,7 +65,14 @@ public class _189_RotateArray {
 		}
 	}
 
+	/**
+	 * 旋转数组
+	 */
+
 	public void rotate2(int[] nums, int k) {
+		if (k < 1) {
+			return;
+		}
 		k = k % nums.length;
 		int count = 0;
 		for (int start = 0; count < nums.length; start++) {
@@ -77,7 +88,38 @@ public class _189_RotateArray {
 				count++;
 			} while (start != current);
 		}
+	}
 
+	/**
+	 * 旋转数组
+	 */
+
+	public void rotate4(int[] nums, int k) {
+		if (k < 1) {
+			return;
+		}
+		k = k % nums.length;
+		if (k == 0){
+			return;
+		}
+		// 共移动次数
+		int n = 0;
+		int start = 0;
+		int current = start;
+		int pre = nums[current];
+		while (n < nums.length) {
+			int next = (current + k) % nums.length;
+			int temp = nums[next];
+			nums[next] = pre;
+			current = next;
+			pre = temp;
+			if (current == start){
+				start++;
+				current = start;
+				pre = nums[current];
+			}
+			n++;
+		}
 	}
 
 	/**
@@ -86,6 +128,9 @@ public class _189_RotateArray {
 	 * step3: [5,6,7,1,2,3,4]
 	 */
 	public void rotate3(int[] nums, int k) {
+		if (k < 1) {
+			return;
+		}
 		k = k % nums.length;
 		reverse(nums, 0, nums.length - 1);
 		reverse(nums, 0, k - 1);
@@ -104,10 +149,10 @@ public class _189_RotateArray {
 
 
 	public static void main(String[] args) {
-		int[] nums = {1, 2, 3, 4, 5, 6, 7};
-		int k = 3;
+		int[] nums = {1,2,3,4,5,6,7};
+		int k = 1;
 		_189_RotateArray test = new _189_RotateArray();
-		test.rotate(nums, k);
+		test.rotate4(nums, k);
 		System.out.println(Arrays.toString(nums));
 	}
 
