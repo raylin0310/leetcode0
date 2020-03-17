@@ -12,6 +12,13 @@ public class _027_RemoveElement {
 
 	The order of elements can be changed. It doesn't matter what you leave beyond the new length.
 
+	给你一个数组 nums 和一个值 val，你需要 原地 移除所有数值等于 val 的元素，并返回移除后数组的新长度。
+
+	不要使用额外的数组空间，你必须仅使用 O(1) 额外空间并 原地 修改输入数组。
+
+	元素的顺序可以改变。你不需要考虑数组中超出新长度后面的元素。
+
+
 	Example 1:
 
 	Given nums = [3,2,2,3], val = 3,
@@ -29,15 +36,20 @@ public class _027_RemoveElement {
 
 	It doesn't matter what values are set beyond the returned length.
 */
+	/**
+	 * @see <a href="https://leetcode-cn.com/problems/remove-element/solution/yi-chu-yuan-su-by-leetcode/" ></a>
+	 */
 
 	public int removeElement(int[] nums, int val) {
-		int j = 0;
+		// nextPutIndex表示下一步将要放置的index，也就是新数组的长度
+		int nextPutIndex = 0;
 		for (int i = 0; i < nums.length; i++) {
 			if (nums[i] != val) {
-				nums[j++] = nums[i];
+				nums[nextPutIndex++] = nums[i];
 			}
+			// 如果相等，nextPut指针不动，i继续向前走
 		}
-		return j;
+		return nextPutIndex;
 	}
 
 	/**

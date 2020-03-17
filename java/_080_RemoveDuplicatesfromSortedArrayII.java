@@ -10,6 +10,10 @@ public class _080_RemoveDuplicatesfromSortedArrayII {
 
 	Do not allocate extra space for another array, you must do this by modifying the input array in-place with O(1) extra memory.
 
+	给定一个排序数组，你需要在原地删除重复出现的元素，使得每个元素最多出现两次，返回移除后数组的新长度。
+
+	不要使用额外的数组空间，你必须在原地修改输入数组并在使用 O(1) 额外空间的条件下完成。
+
 	Example 1:
 
 	Given nums = [1,1,1,2,2,3],
@@ -33,14 +37,15 @@ public class _080_RemoveDuplicatesfromSortedArrayII {
 		if (nums.length < 2) {
 			return nums.length;
 		}
-		// j表示下一步将要放置的index，也就是新数组的长度
-		int j = 2;
+		// nextPutIndex表示下一步将要放置的index，也就是新数组的长度
+		int nextPutIndex = 2;
 		for (int i = 2; i < nums.length; i++) {
-			if (nums[j - 2] != nums[i]) {
-				nums[j++] = nums[i];
+			if (nums[nextPutIndex - 2] != nums[i]) {
+				nums[nextPutIndex++] = nums[i];
 			}
+			// 如果相等，nextPut指针不动，i继续向前走
 		}
-		return j;
+		return nextPutIndex;
 	}
 
 	public int removeDuplicates2(int[] nums) {

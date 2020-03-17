@@ -42,9 +42,10 @@ public class _001_TwoSum {
 	}
 
 	public static void main(String[] args) {
+		_001_TwoSum test = new _001_TwoSum();
 		int[] array = {2, 7, 11, 15};
 		int target = 9;
-		System.out.println(Arrays.toString(new _001_TwoSum().twoSum(array, target)));
+		System.out.println(Arrays.toString(test.twoSum(array, target)));
 	}
 }
 

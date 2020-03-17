@@ -10,6 +10,8 @@ public class _189_RotateArray {
 /*
 	Given an array, rotate the array to the right by k steps, where k is non-negative.
 
+	给定一个数组，将数组中的元素向右移动 k 个位置，其中 k 是非负数。
+
 	Example 1:
 
 	Input: [1,2,3,4,5,6,7] and k = 3
@@ -93,7 +95,7 @@ public class _189_RotateArray {
 			return;
 		}
 		k = k % nums.length;
-		if (k == 0){
+		if (k == 0) {
 			return;
 		}
 		// 共移动次数
@@ -107,7 +109,7 @@ public class _189_RotateArray {
 			nums[next] = pre;
 			current = next;
 			pre = temp;
-			if (current == start){
+			if (current == start) {
 				start++;
 				current = start;
 				pre = nums[current];
@@ -143,9 +145,9 @@ public class _189_RotateArray {
 
 
 	public static void main(String[] args) {
-		int[] nums = {1,2,3,4,5,6,7};
-		int k = 1;
 		_189_RotateArray test = new _189_RotateArray();
+		int[] nums = {1, 2, 3, 4, 5, 6, 7};
+		int k = 1;
 		test.rotate4(nums, k);
 		System.out.println(Arrays.toString(nums));
 	}

@@ -47,6 +47,7 @@ public class _277_FindtheCelebrity {
 	}
 
 	public static void main(String[] args) {
-		System.out.println(new _277_FindtheCelebrity().findCelebrity(60));
+		_277_FindtheCelebrity test = new _277_FindtheCelebrity();
+		System.out.println(test.findCelebrity(60));
 	}
 }
