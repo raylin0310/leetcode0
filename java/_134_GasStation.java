@@ -55,9 +55,9 @@ public class _134_GasStation {
 	/**
 	 * 整个路程总的油量 gasSum 小于总的耗油量 costSum，则无论从哪个点触发，都肯定无法绕行一周。
 	 * 从i到j的剩余油量如果小于0，则下一个开始的节点就为j+1
-	 * 如果i到j剩余油量小于1，那么i+1到j的剩余油量肯定也小于1；
+	 * 如果i到j剩余油量小于0，那么i+1到j的剩余油量肯定也小于1；
 	 * 因为i->j  等于 i->i+1->j，i->i+1肯定大于零才能继续出发到达j，
-	 * 如果从i+1出发，则相当于少了i->i+1的剩余油量，则到达j的总剩余油量只会更小
+	 * 如果从i+1出发，则相当于少了i->i+1的剩余油量，则到达j的总剩余油量只会更少
 	 */
 
 
@@ -76,6 +76,51 @@ public class _134_GasStation {
 			}
 		}
 		return total < 0 ? -1 : start;
+	}
+
+	/**
+	 * 暴力破解
+	 */
+
+	public int canCompleteCircuit2(int[] gas, int[] cost) {
+		int n = gas.length;
+		for (int i = 0; i < n; i++) {
+			int remain = gas[i];
+			int j = i;
+			while (remain - cost[j] >= 0) {
+				remain = remain - cost[j] + gas[(j + 1) % n];
+				j = (j + 1) % n;
+				if (j == i) {
+					return i;
+				}
+			}
+		}
+		return -1;
+	}
+
+	/**
+	 * 应用了1的优化版本
+	 */
+
+	public int canCompleteCircuit3(int[] gas, int[] cost) {
+		int n = gas.length;
+		for (int i = 0; i < n; i++) {
+			int remain = gas[i];
+			int j = i;
+			while (remain - cost[j] >= 0) {
+				remain = remain - cost[j] + gas[(j + 1) % n];
+				j = (j + 1) % n;
+				if (j == i) {
+					return i;
+				}
+			}
+			// j跑到了i前面，所以i后面的都不用判断了
+			if (j < i) {
+				return -1;
+			}
+			i = j;
+		}
+		return -1;
 	}
 
 	public static void main(String[] args) {

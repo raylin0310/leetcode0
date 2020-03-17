@@ -5,7 +5,7 @@ import java.util.Arrays;
  * @author lilin
  * @date 2020-3-11 10:51
  */
-public class _41_FirstMissingPositive {
+public class _041_FirstMissingPositive {
 	/*
 		Given an unsorted integer array, find the smallest missing positive integer.
 
@@ -54,7 +54,7 @@ public class _41_FirstMissingPositive {
 
 	public static void main(String[] args) {
 		int[] nums = {7, 3, 9, 11, 12};
-		_41_FirstMissingPositive test = new _41_FirstMissingPositive();
+		_041_FirstMissingPositive test = new _041_FirstMissingPositive();
 		System.out.println(test.firstMissingPositive(nums));
 	}
 }
