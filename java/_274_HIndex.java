@@ -73,19 +73,10 @@ public class _274_HIndex {
 		return i;
 	}
 
-	public int hIndex3(int[] citations) {
-		Arrays.sort(citations);
-		int res = citations.length - 1;
-		while (res >= 0 && citations[res] > res) {
-			res--;
-		}
-		// 结果返回的是‘几篇文章’满足要求
-		return citations.length - 1 - res;
-	}
 
 	public static void main(String[] args) {
 		_274_HIndex test = new _274_HIndex();
 		int[] nums = {3, 0, 6, 1, 5};
-		System.out.println(test.hIndex3(nums));
+		System.out.println(test.hIndex2(nums));
 	}
 }

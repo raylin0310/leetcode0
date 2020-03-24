@@ -61,6 +61,7 @@ public class _169_MajorityElement {
 				count++;
 			} else if (count == 0) {
 				candidate = num;
+				count = 1;
 			} else {
 				count--;
 			}
@@ -68,9 +69,26 @@ public class _169_MajorityElement {
 		return candidate;
 	}
 
+	/**
+	 * simple
+	 */
+
+	public int majorityElement4(int[] nums) {
+		int count = 0;
+		int candidate = 0;
+		for (int num : nums) {
+			if (count == 0) {
+				candidate = num;
+			}
+			count += (num == candidate) ? 1 : -1;
+		}
+		return candidate;
+	}
+
 	public static void main(String[] args) {
 		_169_MajorityElement test = new _169_MajorityElement();
-		int[] nums = {2, 2, 1, 1, 1, 2, 2};
-		System.out.println(test.majorityElement(nums));
+		int[] nums = {1, 2, 1, 1, 1, 2, 2};
+		int[] nums2 = {1, 2, 1};
+		System.out.println(test.majorityElement3(nums));
 	}
 }

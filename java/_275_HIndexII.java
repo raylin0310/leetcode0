@@ -56,24 +56,24 @@ public class _275_HIndexII {
 		int n = citations.length;
 		int left = 0;
 		int right = n - 1;
-		int res = 0;
 		while (left <= right) {
 			int mid = (right - left) / 2 + left;
-			if (citations[mid] >= n - mid) {
+			if (citations[mid] == n - mid) {
+				return n - mid;
+			}
+			if (citations[mid] > n - mid) {
 				right = mid - 1;
-				res = n - mid;
 			} else {
 				left = mid + 1;
 			}
 		}
-		return res;
+		return n - left;
 	}
 
 
 	public static void main(String[] args) {
 		_275_HIndexII test = new _275_HIndexII();
 		int[] nums = {0, 1, 3, 5, 6};
-		int[] nums2 = {0, 1};
-		System.out.println(test.hIndex(nums2));
+		System.out.println(test.hIndex3(nums));
 	}
 }
