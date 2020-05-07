@@ -62,7 +62,6 @@ public class _123_BestTimetoBuyandSellStockIII {
 		int[][][] dp = new int[n][max_k + 1][2];
 		for (int i = 0; i < n; i++) {
 			for (int k = max_k; k >= 1; k--) {
-			//for (int k = 1; k <= max_k ; k++) { 也行
 				if (i == 0) {
 					/* 处理 base case */
 					dp[i][k][0] = 0;

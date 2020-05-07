@@ -68,6 +68,8 @@ public class _121_BestTimetoBuyandSellStock {
 		}
 		int n = prices.length;
 		int[][] dp = new int[n][2];
+		// 0：持有现金
+		// 1：持有股票
 		dp[0][0] = 0;
 		dp[0][1] = -prices[0];
 		for (int i = 1; i < n; i++) {

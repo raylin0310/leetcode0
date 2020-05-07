@@ -32,13 +32,25 @@ public class _188_BestTimetoBuyandSellStockIV {
 	随后，在第 5 天 (股票价格 = 0) 的时候买入，在第 6 天 (股票价格 = 3) 的时候卖出, 这笔交易所能获得利润 = 3-0 = 3 。
 */
 
-	public static int maxProfit(int k, int[] prices) {
-
-		return 0;
+	public static int maxProfit(int maxK, int[] prices) {
+		int n = prices.length;
+		int[][][] dp = new int[n][maxK + 1][2];
+		for (int i = 0; i < n; i++) {
+			for (int k = maxK; k >= 1; k--) {
+				if (i == 0) {
+					dp[i][k][0] = 0;
+					dp[i][k][1] = -prices[0];
+					continue;
+				}
+				dp[i][k][0] = Math.max(dp[i - 1][k][0], dp[i - 1][k][1] + prices[i]);
+				dp[i][k][1] = Math.max(dp[i - 1][k][1], dp[i - 1][k - 1][0] - prices[i]);
+			}
+		}
+		return dp[n - 1][maxK][0];
 	}
 
 	public static void main(String[] args) {
-		int[] prices = {3, 3, 5, 0, 0, 3, 1, 4};
+		int[] prices = {3,2,6,5,0,3};
 		int k = 2;
 		System.out.println(maxProfit(k, prices));
 	}
