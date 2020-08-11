@@ -7,8 +7,8 @@ public class _219_ContainsDuplicateII {
 	find out whether there are two distinct indices i and j in the array
 	such that nums[i] = nums[j] and the absolute difference between i and j is at most k.
 
-	给定一个整数数组和一个整数 k，判断数组中是否存在两个不同的索引 i 和 j，
-	使得 nums [i] = nums [j]，并且 i 和 j 的差的 绝对值 至多为 k。
+	给定一个整数数组和一个整数k，判断数组中是否存在两个不同的索引i和j，
+	使得nums [i] = nums [j]，并且 i 和 j的差的 绝对值 至多为 k。
 
 
 	Example 1:

@@ -1,20 +1,20 @@
 public class _245_ShortestWordDistanceIII {
 /*
-	This is a follow up of Shortest Word Distance. The only difference is now word1 could be the same a sword2.
+	This is afollow upofShortest Word Distance. The only difference is nowword1could be the same a sword2.
 
-	Given a list of words and two words word1 and word2,
+	Given a list of words and two wordsword1andword2,
 	return the shortest distance between these two words in the list.
 
-	word1 and word2 may be the same and they represent two individual words in the list.
+	word1andword2may be the same and they represent two individual words in the list.
 
 	For example,
-	Assume that words = ["practice", "makes", "perfect", "coding", "makes"].
+	Assume that words =["practice", "makes", "perfect", "coding", "makes"].
 
-	Given word1 = “makes”, word2 = “coding”, return 1.
-	Given word1 = "makes", word2 = "makes", return 3.
+	Givenword1=“makes”,word2=“coding”, return 1.
+	Givenword1="makes",word2="makes", return 3.
 
 	Note:
-	You may assume word1 and word2 are both in the list.
+	You may assumeword1andword2are both in the list.
 */
 
 	public int shortestDistance(String[] words, String word1, String word2) {

@@ -12,7 +12,7 @@ public class _027_RemoveElement {
 
 	The order of elements can be changed. It doesn't matter what you leave beyond the new length.
 
-	给你一个数组 nums 和一个值 val，你需要 原地 移除所有数值等于 val 的元素，并返回移除后数组的新长度。
+	给你一个数组 nums和一个值 val，你需要 原地 移除所有数值等于val的元素，并返回移除后数组的新长度。
 
 	不要使用额外的数组空间，你必须仅使用 O(1) 额外空间并 原地 修改输入数组。
 
