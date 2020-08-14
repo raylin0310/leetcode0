@@ -36,7 +36,7 @@ public class _027_RemoveElement {
 
 	It doesn't matter what values are set beyond the returned length.
 */
-	/**
+	/*
 	 * @see <a href="https://leetcode-cn.com/problems/remove-element/solution/yi-chu-yuan-su-by-leetcode/" ></a>
 	 */
 
@@ -52,7 +52,7 @@ public class _027_RemoveElement {
 		return nextPutIndex;
 	}
 
-	/**
+	/*
 	 * 双指针，结果无序
 	 */
 	public int removeElement2(int[] nums, int val) {

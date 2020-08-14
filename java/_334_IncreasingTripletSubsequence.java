@@ -47,7 +47,7 @@ public class _334_IncreasingTripletSubsequence {
 	}
 
 
-	/**
+	/*
 
 	  1,2,3,7,5
 

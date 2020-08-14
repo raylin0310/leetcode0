@@ -39,7 +39,7 @@ public class _299_BullsAndCows {
 		Note: You may assume that the secret number and your friend's guess only contain digits, and their lengths are always equal.
 	*/
 
-	/**
+	/*
 	 * "1234"
 	 * "5612"
 	 *

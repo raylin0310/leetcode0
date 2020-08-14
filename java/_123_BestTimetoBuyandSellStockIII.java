@@ -33,7 +33,7 @@ public class _123_BestTimetoBuyandSellStockIII {
 	解释: 在这个情况下, 没有交易完成, 所以最大利润为 0。
 */
 
-	/**
+	/*
 	 * ...
 	 */
 
@@ -51,7 +51,7 @@ public class _123_BestTimetoBuyandSellStockIII {
 		return sell2;
 	}
 
-	/**
+	/*
 	 * dp[i][k][0] = max(dp[i-1][k][0], dp[i-1][k][1] + prices[i])
 	 * dp[i][k][1] = max(dp[i-1][k][1], dp[i-1][k-1][0] - prices[i])
 	 */

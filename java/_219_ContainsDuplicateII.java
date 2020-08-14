@@ -41,7 +41,7 @@ public class _219_ContainsDuplicateII {
 		return false;
 	}
 
-	/**
+	/*
 	 * 线性搜索，维护一个最大宽度为k的滑动窗口，在这个窗口内搜索
 	 * https://leetcode-cn.com/problems/contains-duplicate-ii/solution/cun-zai-zhong-fu-yuan-su-ii-by-leetcode/
 	 */

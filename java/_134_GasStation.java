@@ -58,7 +58,7 @@ public class _134_GasStation {
 
 	*/
 
-	/**
+	/*
 	 * 整个路程总的油量 gasSum 小于总的耗油量 costSum，则无论从哪个点触发，都肯定无法绕行一周。
 	 * 从i到j的剩余油量如果小于0，则下一个开始的节点就为j+1
 	 * 如果i到j剩余油量小于0，那么i+1到j的剩余油量肯定也小于1；
@@ -84,7 +84,7 @@ public class _134_GasStation {
 		return total < 0 ? -1 : start;
 	}
 
-	/**
+	/*
 	 * 暴力破解
 	 */
 
@@ -104,7 +104,7 @@ public class _134_GasStation {
 		return -1;
 	}
 
-	/**
+	/*
 	 * 应用了1的优化版本
 	 */
 

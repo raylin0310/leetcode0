@@ -10,7 +10,7 @@
  * @author lilin
  * @date 2020-5-7 14:56
  */
-public class _45_JumpGameII {
+public class _045_JumpGameII {
 /*
 	给定一个非负整数数组，你最初位于数组的第一个位置。
 
@@ -41,7 +41,7 @@ public class _45_JumpGameII {
 		return steps;
 	}
 
-	/**
+	/*
 	 * @link https://leetcode-cn.com/problems/jump-game-ii/solution/tiao-yue-you-xi-ii-by-leetcode-solution/
 	 */
 

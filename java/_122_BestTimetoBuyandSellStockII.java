@@ -51,7 +51,7 @@ public class _122_BestTimetoBuyandSellStockII {
 		return profit;
 	}
 
-	/**
+	/*
 	 * @link https://leetcode-cn.com/problems/best-time-to-buy-and-sell-stock-ii/solution/tan-xin-suan-fa-by-liweiwei1419-2/
 	 *  泛化的动态规划
 	 * @link https://leetcode-cn.com/problems/best-time-to-buy-and-sell-stock/solution/yi-ge-fang-fa-tuan-mie-6-dao-gu-piao-wen-ti-by-l-3/

@@ -26,7 +26,7 @@ public class _229_MajorityElementII {
 	Output: [1,2]
 */
 
-	/**
+	/*
 	 * 结果最多不超过两个
 	 * 1、如果投A（当前元素等于A），则A的票数++;
 	 * 2、如果投B（当前元素等于B），B的票数++；

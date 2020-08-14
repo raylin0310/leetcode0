@@ -40,7 +40,7 @@ public class _189_RotateArray {
 	[5,6,7,1,2,3,4]
 	*/
 
-	/**
+	/*
 	 * 挨个儿位移 时间复杂度 kn
 	 */
 
@@ -61,7 +61,7 @@ public class _189_RotateArray {
 		}
 	}
 
-	/**
+	/*
 	 * 旋转数组
 	 */
 
@@ -86,7 +86,7 @@ public class _189_RotateArray {
 		}
 	}
 
-	/**
+	/*
 	 * 旋转数组
 	 */
 
@@ -118,7 +118,7 @@ public class _189_RotateArray {
 		}
 	}
 
-	/**
+	/*
 	 * step1: [7,6,5,4,3,2,1]
 	 * step2: [5,6,7,4,3,2,1]
 	 * step3: [5,6,7,1,2,3,4]

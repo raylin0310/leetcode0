@@ -34,7 +34,7 @@ public class _220_ContainsDuplicateIII {
 		return false;
 	}
 
-	/**
+	/*
 	 *    t = 5
 	 *    curNum = 20,searchNum [15,25]
 	 *

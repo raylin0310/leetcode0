@@ -37,7 +37,7 @@ public class _275_HIndexII {
 		Could you solve it in logarithmic time complexity?
 	*/
 
-	/**
+	/*
 	 * 与274不同的是，已经排好序
 	 *
 	 */

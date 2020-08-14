@@ -46,7 +46,7 @@ public class _169_MajorityElement {
 		return nums[nums.length / 2];
 	}
 
-	/**
+	/*
 	 * 投票法
 	 * 如果num等于候选数，票数加一
 	 * 如果count为零，说明票数刚好抵消完，重新赋值候选数
@@ -69,7 +69,7 @@ public class _169_MajorityElement {
 		return candidate;
 	}
 
-	/**
+	/*
 	 * simple
 	 */
 

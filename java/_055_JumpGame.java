@@ -4,7 +4,7 @@
  * @author lilin
  * @date 2020-5-7 14:23
  */
-public class _55_JumpGame {
+public class _055_JumpGame {
 /*
 	给定一个非负整数数组，你最初位于数组的第一个位置。
 
@@ -24,7 +24,7 @@ public class _55_JumpGame {
 	解释: 无论怎样，你总会到达索引为 3 的位置。但该位置的最大跳跃长度是 0 ， 所以你永远不可能到达最后一个位置。
 */
 
-	/**
+	/*
 	 * @link  https://leetcode-cn.com/problems/jump-game/solution/55-by-ikaruga/
 	 * 不断更新最远位置，在当前节点已经超过最远位置时，说明到达不了了
 	 */

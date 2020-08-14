@@ -43,7 +43,7 @@ public class _118_PascalsTriangle {
 		return triangle;
 	}
 
-	/**
+	/*
 	 *  [1,2,1] -> [1,1,2,1]
 	 * [1,3,3,1]
 	 */
