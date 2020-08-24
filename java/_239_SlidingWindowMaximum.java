@@ -65,7 +65,7 @@ public class _239_SlidingWindowMaximum {
 				deque.poll();
 			}
 			while (!deque.isEmpty() && nums[deque.peekLast()] < nums[i]) {
-				//deque.peekLast()即为马上要移除的元素，如果比当前小，则删掉，这样则保持队列的最后一个元素总是当前窗口内最大的
+				//deque.peekLast()即最后一个元素，如果比当前小，则删掉，这样则保持队列的最后一个元素总是当前窗口内最大的
 				deque.removeLast();
 			}
 			deque.offerLast(i);
@@ -78,6 +78,8 @@ public class _239_SlidingWindowMaximum {
 
 	public static void main(String[] args) {
 		int[] nums = {1,3,-1,-3,5,3,6,7};
-		ArrayUtil.toString(maxSlidingWindow(nums,5));
+		//ArrayUtil.toString(maxSlidingWindow(nums,5));
+		int[] nums2 = {100,50,60,30,10};
+		ArrayUtil.toString(maxSlidingWindow(nums2,3));
 	}
 }
