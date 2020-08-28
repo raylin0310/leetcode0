@@ -10,7 +10,7 @@
  * @author lilin
  * @date 2020-8-13 10:47
  */
-public class ArrayUtil {
+public class AU {
 
 	public static void toString(int[][] nums) {
 		for (int[] num : nums) {
@@ -20,8 +20,12 @@ public class ArrayUtil {
 	}
 
 	public static void toString(int[] nums) {
-		for (int num : nums) {
-			System.out.print(num + "\t");
+		for (int i = 0; i < nums.length; i++) {
+			if (i == nums.length - 1) {
+				System.out.print(nums[i] + "\n");
+			} else {
+				System.out.print(nums[i] + "\t");
+			}
 		}
 	}
 }

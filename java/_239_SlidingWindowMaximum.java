@@ -80,6 +80,6 @@ public class _239_SlidingWindowMaximum {
 		int[] nums = {1,3,-1,-3,5,3,6,7};
 		//ArrayUtil.toString(maxSlidingWindow(nums,5));
 		int[] nums2 = {100,50,60,30,10};
-		ArrayUtil.toString(maxSlidingWindow(nums2,3));
+		AU.toString(maxSlidingWindow(nums2,3));
 	}
 }
