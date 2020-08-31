@@ -70,13 +70,8 @@ public class _325_MaximumSizeSubarraySumEqualsK {
 		for (int i = 0; i < nums.length; i++) {
 			if (map.containsKey(nums[i] - k)) {
 				res = Math.max(res, i - map.get(nums[i] - k));
-				if (i - map.get(nums[i] - k) >= res){
-					System.out.println("j="+i+"，i="+map.get(nums[i] - k));
-				}
 			}
-			if (!map.containsKey(nums[i])) {
-				map.put(nums[i], i);
-			}
+			map.putIfAbsent(nums[i],i);
 		}
 		return res;
 	}
@@ -84,7 +79,7 @@ public class _325_MaximumSizeSubarraySumEqualsK {
 	public static void main(String[] args) {
 		//[1, -1, 5, -2]
 		int[] nums = {1, -1, 5, -2, 3};
-		int[] nums2 = {1,1,-1,1,1,-1,-1};
+		int[] nums2 = {-1,1,-1,1,-1,1,-1,1};
 		System.out.println(maxSubArrayLen(nums2, 0));
 	}
 
