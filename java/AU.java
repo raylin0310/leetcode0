@@ -5,6 +5,8 @@
  * @copyright Copyright 2018 Thunisoft, Inc. All rights reserved.
  */
 
+import java.util.List;
+
 /**
  * ArrayUtil
  * @author lilin
@@ -12,14 +14,20 @@
  */
 public class AU {
 
-	public static void toString(int[][] nums) {
+	public static void print(List nums) {
+		for (Object num : nums) {
+			System.out.println(num);
+		}
+	}
+
+	public static void print(int[][] nums) {
 		for (int[] num : nums) {
-			toString(num);
+			print(num);
 			System.out.println();
 		}
 	}
 
-	public static void toString(int[] nums) {
+	public static void print(int[] nums) {
 		for (int i = 0; i < nums.length; i++) {
 			if (i == nums.length - 1) {
 				System.out.print(nums[i] + "\n");
@@ -27,5 +35,11 @@ public class AU {
 				System.out.print(nums[i] + "\t");
 			}
 		}
+	}
+
+	public static void swap(int[] nums, int i, int j) {
+		int temp = nums[i];
+		nums[i] = nums[j];
+		nums[j] = temp;
 	}
 }

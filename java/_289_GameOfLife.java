@@ -118,7 +118,7 @@ public class _289_GameOfLife {
 				{0, 0, 0}
 		};
 		gameOfLife(nums);
-		AU.toString(nums);
+		AU.print(nums);
 	}
 }
 

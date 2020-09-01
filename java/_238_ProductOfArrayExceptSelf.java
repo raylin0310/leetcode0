@@ -51,7 +51,7 @@ public class _238_ProductOfArrayExceptSelf {
 		// res[i] = i坐标左边所有数字的乘积
 		// 如res[3] = res[2] * num[2] (2下标所有的乘积即num[0]*num[1]，乘上num[2]，即res[3] = num[0]*num[1]*num[2])
 		System.out.println("第一次循环后：");
-		AU.toString(res);
+		AU.print(res);
 		int right = 1;
 		for (int i = nums.length - 1; i >= 0; i--) {
 			res[i] *= right;
@@ -81,7 +81,7 @@ public class _238_ProductOfArrayExceptSelf {
 
 	public static void main(String[] args) {
 		int[] nums = {1, 2, 3, 4};
-		AU.toString(productExceptSelf(nums));
-		AU.toString(productExceptSelf2(nums));
+		AU.print(productExceptSelf(nums));
+		AU.print(productExceptSelf2(nums));
 	}
 }
