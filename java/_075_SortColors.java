@@ -54,7 +54,7 @@ public class _075_SortColors {
 
 
 	public static void main(String[] args) {
-		int[] nums = {2, 0, 2, 1, 1, 0};
+		int[] nums = {0, 0, 1, 0, 1, 0};
 		sortColors(nums);
 		AU.print(nums);
 	}
