@@ -61,9 +61,11 @@ public class _057_InsertInterval {
 
 	public static void main(String[] args) {
 		List<Interval> intervals = new ArrayList<>();
-		intervals.add(new Interval(1,3));
-		intervals.add(new Interval(9,13));
-		List<Interval> insert = insert(intervals, new Interval(5, 7));
+		intervals.add(new Interval(1,2));
+		intervals.add(new Interval(3,5));
+		intervals.add(new Interval(6,7));
+		intervals.add(new Interval(10,12));
+		List<Interval> insert = insert(intervals, new Interval(4, 8));
 		for (Interval interval : insert) {
 			System.out.print(interval.start+"\t");
 			System.out.print(interval.end);
