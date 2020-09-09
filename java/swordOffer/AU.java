@@ -1,4 +1,4 @@
-/*
+package swordOffer;/*
  * @projectName leetcode0
  * @package PACKAGE_NAME
  * @className PACKAGE_NAME.ArrayUtil
