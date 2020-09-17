@@ -37,11 +37,30 @@ public final class AU {
 		}
 	}
 
+	public static void print(char[] nums) {
+		for (int i = 0; i < nums.length; i++) {
+			if (i == nums.length - 1) {
+				System.out.print("'" + nums[i] + "'" + "\n");
+			} else {
+				System.out.print("'" + nums[i] + "',");
+			}
+		}
+	}
+
 	public static void swap(int[] nums, int i, int j) {
-		if (i == j){
+		if (i == j) {
 			return;
 		}
 		int temp = nums[i];
+		nums[i] = nums[j];
+		nums[j] = temp;
+	}
+
+	public static void swap(char[] nums, int i, int j) {
+		if (i == j) {
+			return;
+		}
+		char temp = nums[i];
 		nums[i] = nums[j];
 		nums[j] = temp;
 	}
