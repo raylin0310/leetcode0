@@ -10,7 +10,7 @@
  * @author lilin
  * @date 2020-9-21 10:02
  */
-public class _87_ScrambleString {
+public class _087_ScrambleString {
 	/*
 	给定一个字符串s1，我们可以把它递归地分割成两个非空子字符串，从而将其表示为二叉树。
 

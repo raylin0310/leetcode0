@@ -66,7 +66,7 @@ public class _006_ZigZagConversion {
 		return sb[0].toString();
 	}
 
-	//把每一个字符放在对应行的string里面，最后拼接
+	//把每一个字符放在对应行的StringBuilder里面，最后拼接
 	public static String convert2(String s, int numRows) {
 
 		if (numRows == 1) {
@@ -80,7 +80,6 @@ public class _006_ZigZagConversion {
 
 		int curRow = 0;
 		boolean goingDown = false;
-
 		for (char c : s.toCharArray()) {
 			rows.get(curRow).append(c);
 			if (curRow == 0 || curRow == numRows - 1) {
