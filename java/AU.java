@@ -46,6 +46,15 @@ public final class AU {
 			}
 		}
 	}
+	public static void print(String[] nums) {
+		for (int i = 0; i < nums.length; i++) {
+			if (i == nums.length - 1) {
+				System.out.print("'" + nums[i] + "'" + "\n");
+			} else {
+				System.out.print("'" + nums[i] + "',");
+			}
+		}
+	}
 
 	public static void swap(int[] nums, int i, int j) {
 		if (i == j) {

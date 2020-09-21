@@ -49,6 +49,7 @@ public class _249_GroupShiftedStrings {
 				}
 				key += c;
 			}
+			System.out.println(key);
 			if (!map.containsKey(key)) {
 				List<String> list = new ArrayList<>();
 				map.put(key, list);
