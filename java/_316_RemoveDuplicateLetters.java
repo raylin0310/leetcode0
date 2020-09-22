@@ -138,7 +138,7 @@ public class _316_RemoveDuplicateLetters {
 		return sb.reverse().toString();
 	}
 
-	//自己写的
+	//自己写的，402题同套路
 	public static String removeDuplicateLetters4(String s) {
 		Stack<Character> stack = new Stack<>();
 
