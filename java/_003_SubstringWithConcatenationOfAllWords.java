@@ -43,13 +43,14 @@ public class _003_SubstringWithConcatenationOfAllWords {
 
 	// 滑动窗口思路
 	public static int lengthOfLongestSubstring(String s) {
-		if (s == null || s.length() <1) {
+		if (s == null || s.length() < 1) {
 			return 0;
 		}
 		HashSet<Character> set = new HashSet<>();
 		int rk = -1;
 		int n = s.length();
 		int max = Integer.MIN_VALUE;
+		//i是左指针
 		for (int i = 0; i < n; i++) {
 			if (i != 0) {
 				//左指针向右移动，移除前面的字符
