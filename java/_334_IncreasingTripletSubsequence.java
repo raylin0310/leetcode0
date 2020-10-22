@@ -16,7 +16,7 @@ public class _334_IncreasingTripletSubsequence {
 
 	数学表达式如下:
 
-	如果存在这样的i, j, k,  且满足0 ≤ i < j < k ≤ n-1，
+	如果存在这样的i, j, k,且满足0 ≤ i < j < k ≤ n-1，
 	使得arr[i] < arr[j] < arr[k] ，返回 true ;否则返回 false 。
 	说明: 要求算法的时间复杂度为 O(n)，空间复杂度为 O(1) 。
 

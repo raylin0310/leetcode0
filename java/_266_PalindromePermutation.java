@@ -8,7 +8,7 @@
 import java.util.HashSet;
 
 /**
- * _266_PalindromePermutation
+ * 回文排列
  * @author lilin
  * @date 2020-9-27 11:03
  */
