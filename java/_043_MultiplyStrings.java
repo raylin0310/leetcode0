@@ -54,6 +54,7 @@ public class _043_MultiplyStrings {
 		}
 		StringBuilder res = new StringBuilder();
 		for (int digit : digits) {
+			//去掉首位0
 			if (!(digit == 0 && res.length() == 0)) {
 				res.append(digit);
 			}

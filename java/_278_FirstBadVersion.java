@@ -49,10 +49,10 @@ public class _278_FirstBadVersion {
 	}
 
 	public static boolean isBadVersion(int mid) {
-		return true;
+		return mid==10;
 	}
 
 	public static void main(String[] args) {
-
+		System.out.println(firstBadVersion(10));
 	}
 }
