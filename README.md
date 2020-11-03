@@ -1,3 +1,4 @@
 # leetcode0
 
-https://cspiration.com/leetcodeClassification#10311
+21道math不做
+总共400-21 = 380
