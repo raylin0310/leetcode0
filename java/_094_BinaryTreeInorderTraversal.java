@@ -58,6 +58,22 @@ public class _094_BinaryTreeInorderTraversal {
 	}
 
 	public static void main(String[] args) {
+		TreeNode root = new TreeNode(1);
+		TreeNode left = new TreeNode(2);
+		TreeNode right = new TreeNode(3);
+		root.left = left;
+		root.right = right;
 
+		TreeNode leftl = new TreeNode(21);
+		TreeNode leftr = new TreeNode(22);
+
+		TreeNode rightl = new TreeNode(31);
+		TreeNode rightr = new TreeNode(32);
+		left.left = leftl;
+		left.right = leftr;
+
+		right.left = rightl;
+		right.right = rightr;
+		AU.print(inorderTraversal2(root));
 	}
 }

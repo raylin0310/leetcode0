@@ -63,6 +63,17 @@ public class _145_BinaryTreePostorderTraversal {
 		TreeNode right = new TreeNode(3);
 		root.left = left;
 		root.right = right;
+
+		TreeNode leftl = new TreeNode(21);
+		TreeNode leftr = new TreeNode(22);
+
+		TreeNode rightl = new TreeNode(31);
+		TreeNode rightr = new TreeNode(32);
+		left.left = leftl;
+		left.right = leftr;
+
+		right.left = rightl;
+		right.right = rightr;
 		AU.print(postorderTraversal2(root));
 	}
 }
