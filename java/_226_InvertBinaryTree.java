@@ -5,63 +5,75 @@
  * @copyright Copyright 2018 Thunisoft, Inc. All rights reserved.
  */
 
+import java.util.LinkedList;
+import java.util.Queue;
+
 /**
  * 翻转二叉树
  * @author lilin
  * @date 2020-11-5 17:53
  */
 public class _226_InvertBinaryTree {
+	/*
+	翻转一棵二叉树。
+	 */
+
+	/*
+	递归(后续遍历)
+	 */
 
 	public static TreeNode invertTree(TreeNode root) {
 		if (root == null) {
 			return root;
 		}
-		if (root.left == null && root.right == null) {
-			return root;
-		}
-		TreeNode l = root.left;
-		TreeNode r = root.right;
-		root.left = r;
-		root.right = l;
-		help(l, r);
+		TreeNode left = invertTree(root.left);
+		TreeNode right = invertTree(root.right);
+		root.left = right;
+		root.right = left;
 		return root;
 	}
 
-	public static void help(TreeNode p, TreeNode q) {
-		if (p == null && q == null){
-			return;
+	/*
+	递归(前续遍历)
+    */
+
+	public static TreeNode invertTree2(TreeNode root) {
+		if (root == null) {
+			return root;
 		}
-		TreeNode pl = p.left;
-		TreeNode pr = p.left;
+		TreeNode temp = root.left;
+		root.left = root.right;
+		root.right = temp;
+		invertTree(root.left);
+		invertTree(root.right);
+		return root;
+	}
 
-		TreeNode ql = q.left;
-		TreeNode qr = q.left;
+	/*
+	迭代BFS，广度优先搜索
+	 */
 
-		p.left = qr;
-		p.right = ql;
-		q.left = pr;
-		q.right = pl;
-		help(pl,qr);
-		help(pr,ql);
+	public static TreeNode invertTree3(TreeNode root) {
+		if (root == null) {
+			return root;
+		}
+		Queue<TreeNode> queue = new LinkedList<>();
+		queue.add(root);
+		while (!queue.isEmpty()) {
+			TreeNode cur = queue.poll();
+			if (cur == null) {
+				continue;
+			}
+			TreeNode temp = cur.left;
+			cur.left = cur.right;
+			cur.right = temp;
+			queue.offer(cur.left);
+			queue.offer(cur.right);
+		}
+		return root;
 	}
 
 	public static void main(String[] args) {
-		TreeNode root = new TreeNode(4);
-		TreeNode left = new TreeNode(2);
-		TreeNode right = new TreeNode(7);
-		root.left = left;
-		root.right = right;
-
-		TreeNode leftl = new TreeNode(1);
-		TreeNode leftr = new TreeNode(3);
-
-		TreeNode rightl = new TreeNode(6);
-		TreeNode rightr = new TreeNode(9);
-		left.left = leftl;
-		left.right = leftr;
-
-		right.left = rightl;
-		right.right = rightr;
-		System.out.println(invertTree(root));
+		System.out.println(_102_BinaryTreeLevelOrderTraversal.levelOrder(invertTree(TreeNode.stringToTreeNode("[4,2,7,1,3,6,9]"))));
 	}
 }
