@@ -85,6 +85,6 @@ public class _144_BinaryTreePreorderTraversal {
 
 		right.left = rightl;
 		right.right = rightr;
-		AU.print(preorderTraversal2(root));
+		System.out.println(preorderTraversal2(root));
 	}
 }

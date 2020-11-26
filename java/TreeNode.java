@@ -5,8 +5,11 @@
  * @copyright Copyright 2018 Thunisoft, Inc. All rights reserved.
  */
 
+import java.util.ArrayList;
 import java.util.LinkedList;
+import java.util.List;
 import java.util.Queue;
+import java.util.Stack;
 
 /**
  * TreeNode
@@ -74,5 +77,26 @@ public class TreeNode {
 			}
 		}
 		return root;
+	}
+
+	public  List<Integer> postorderTraversal() {
+		TreeNode root = this;
+		List<Integer> res = new ArrayList<>();
+		if (root == null) {
+			return res;
+		}
+		Stack<TreeNode> stack = new Stack<>();
+		TreeNode cur = root;
+		while (cur != null || !stack.isEmpty()) {
+			while (cur != null) {
+				stack.push(cur);
+				cur = cur.left;
+			}
+			cur = stack.pop();
+			res.add(cur.val);
+			cur = cur.right;
+		}
+		System.out.println(res);
+		return res;
 	}
 }

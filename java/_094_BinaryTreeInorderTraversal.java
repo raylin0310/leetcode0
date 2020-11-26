@@ -74,6 +74,6 @@ public class _094_BinaryTreeInorderTraversal {
 
 		right.left = rightl;
 		right.right = rightr;
-		AU.print(inorderTraversal2(root));
+		System.out.println(inorderTraversal2(root));
 	}
 }
