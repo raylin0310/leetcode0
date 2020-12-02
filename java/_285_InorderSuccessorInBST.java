@@ -23,12 +23,16 @@ public class _285_InorderSuccessorInBST {
 			if (root.val <= p.val) {
 				root = root.right;
 			} else {
-				//这里设置是因为如果p是叶子节点的情况
+				//root.val > p.val
 				res = root;
 				root = root.left;
 			}
 		}
 		return res;
+	}
+
+	public static void main(String[] args) {
+		System.out.println(inorderSuccessor(TreeNode.stringToTreeNode("[100,50,60,30,40,70,80,20]"), new TreeNode(20)).val);
 	}
 
 }

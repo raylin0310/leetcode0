@@ -35,6 +35,13 @@ public class TreeNode {
 		this.right = right;
 	}
 
+	@Override
+	public String toString() {
+		return "TreeNode{" +
+				"val=" + val +
+				'}';
+	}
+
 	public static TreeNode stringToTreeNode(String input) {
 		input = input.trim();
 		input = input.substring(1, input.length() - 1);

@@ -57,23 +57,43 @@ public class _094_BinaryTreeInorderTraversal {
 		return res;
 	}
 
+	/*
+	画图打debug跟一下理清逻辑
+	 */
+
+	public static List<Integer> inorderTraversal3(TreeNode root) {
+		List<Integer> res = new ArrayList<>();
+		TreeNode predecessor = null;
+
+		while (root != null) {
+			if (root.left != null) {
+				// predecessor 节点就是当前 root 节点向左走一步，然后一直向右走至无法走为止
+				predecessor = root.left;
+				while (predecessor.right != null && predecessor.right != root) {
+					predecessor = predecessor.right;
+				}
+				// 让 predecessor 的右指针指向 root，继续遍历左子树
+				if (predecessor.right == null) {
+					predecessor.right = root;
+					root = root.left;
+				} else {
+					// 说明左子树已经访问完了，我们需要断开链接
+					res.add(root.val);
+					predecessor.right = null;
+					root = root.right;
+				}
+			} else {
+				// 如果没有左孩子，则直接访问右孩子
+				res.add(root.val);
+				// 这里的right就是predecessor node，顺序后继节点
+				root = root.right;
+			}
+		}
+		return res;
+	}
+
 	public static void main(String[] args) {
-		TreeNode root = new TreeNode(1);
-		TreeNode left = new TreeNode(2);
-		TreeNode right = new TreeNode(3);
-		root.left = left;
-		root.right = right;
 
-		TreeNode leftl = new TreeNode(21);
-		TreeNode leftr = new TreeNode(22);
-
-		TreeNode rightl = new TreeNode(31);
-		TreeNode rightr = new TreeNode(32);
-		left.left = leftl;
-		left.right = leftr;
-
-		right.left = rightl;
-		right.right = rightr;
-		System.out.println(inorderTraversal2(root));
+		System.out.println(inorderTraversal3(TreeNode.stringToTreeNode("[1,2,null,4,5]")));
 	}
 }
