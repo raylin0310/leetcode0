@@ -6,8 +6,9 @@
  */
 
 import java.util.ArrayList;
+import java.util.Deque;
+import java.util.LinkedList;
 import java.util.List;
-import java.util.Stack;
 
 /**
  * _094_BinaryTreeInorderTraversal
@@ -43,7 +44,7 @@ public class _094_BinaryTreeInorderTraversal {
 		if (root == null) {
 			return res;
 		}
-		Stack<TreeNode> stack = new Stack<>();
+		Deque<TreeNode> stack = new LinkedList<>();
 		TreeNode cur = root;
 		while (cur != null || !stack.isEmpty()) {
 			while (cur != null) {
