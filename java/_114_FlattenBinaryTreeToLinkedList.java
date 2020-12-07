@@ -67,6 +67,30 @@ public class _114_FlattenBinaryTreeToLinkedList {
 		}
 	}
 
+	public void flatten3(TreeNode root) {
+		if (root == null) {
+			return;
+		}
+		Deque<TreeNode> stack = new LinkedList<>();
+		stack.push(root);
+		TreeNode prev = null;
+		while (!stack.isEmpty()) {
+			TreeNode curr = stack.pop();
+			if (prev != null) {
+				prev.left = null;
+				prev.right = curr;
+			}
+			TreeNode left = curr.left, right = curr.right;
+			if (right != null) {
+				stack.push(right);
+			}
+			if (left != null) {
+				stack.push(left);
+			}
+			prev = curr;
+		}
+	}
+
 	/*
 	https://leetcode-cn.com/problems/flatten-binary-tree-to-linked-list/solution/er-cha-shu-zhan-kai-wei-lian-biao-by-leetcode-solu/
 	官方动画
