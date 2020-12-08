@@ -35,6 +35,7 @@ public class _131_PalindromePartitioning {
 	 */
 
 	/*
+	回溯
 	time: O(2^n) space O(n)
 	 */
 
