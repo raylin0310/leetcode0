@@ -57,6 +57,7 @@ public class _090_SubsetsII {
 		res.add(new ArrayList<>(list));
 		for (int i = index; i < nums.length; i++) {
 			if (i != index && nums[i] == nums[i - 1]) {
+				System.out.println("res：" + res.toString() + "\tindex：" + index + "\ti：" + i + "\tlist：" + list.toString());
 				continue;
 			}
 			list.add(nums[i]);
@@ -66,7 +67,7 @@ public class _090_SubsetsII {
 	}
 
 	public static void main(String[] args) {
-		int[] nums = {1, 2, 2, 4};
-		System.out.println(subsetsWithDup2(nums).toString());
+		int[] nums = {1, 2, 2};
+		System.out.println("result：" + subsetsWithDup2(nums).toString());
 	}
 }
