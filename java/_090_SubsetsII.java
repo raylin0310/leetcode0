@@ -53,11 +53,11 @@ public class _090_SubsetsII {
 	https://imgchr.com/i/rpirqK
 	 */
 
-	public static void helper(List<List<Integer>> res, List<Integer> list, int[] nums, int index) {
+	public static void helper(List<List<Integer>> res, List<Integer> list, int[] nums, int start) {
 		res.add(new ArrayList<>(list));
-		for (int i = index; i < nums.length; i++) {
-			if (i != index && nums[i] == nums[i - 1]) {
-				System.out.println("res：" + res.toString() + "\tindex：" + index + "\ti：" + i + "\tlist：" + list.toString());
+		for (int i = start; i < nums.length; i++) {
+			if (i != start && nums[i] == nums[i - 1]) {
+				System.out.println("res：" + res.toString() + "\tindex：" + start + "\ti：" + i + "\tlist：" + list.toString());
 				continue;
 			}
 			list.add(nums[i]);

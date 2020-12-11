@@ -6,6 +6,7 @@
  */
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 /**
@@ -49,16 +50,31 @@ public class _040_CombinationSumII {
 
 	public static List<List<Integer>> combinationSum2(int[] candidates, int target) {
 		List<List<Integer>> res = new ArrayList<>();
+		Arrays.sort(candidates);
+		dfs(res, new ArrayList<>(), candidates, 0, target);
 		return res;
 	}
 
-	public static void dfs(List<List<Integer>> res, List<Integer> path, int[] candidates, int index, int target) {
+	public static void dfs(List<List<Integer>> res, List<Integer> path, int[] candidates, int start, int target) {
 		if (target == 0) {
 			res.add(new ArrayList<>(path));
 			return;
 		}
-		for (int i = index; i < candidates.length && target > 0; i++) {
-			path.add(i);
+		for (int i = start; i < candidates.length && target > 0; i++) {
+			if (i != start && candidates[i] == candidates[i - 1]) {
+				continue;
+			}
+			path.add(candidates[i]);
+			dfs(res, path, candidates, i + 1, target - candidates[i]);
+			path.remove(path.size() - 1);
+
 		}
+	}
+
+	public static void main(String[] args) {
+		int[] nums = {2, 5, 2, 1, 2};
+		int target = 5;
+		// [[1,2,2],[5]]
+		System.out.println(combinationSum2(nums, target).toString());
 	}
 }
