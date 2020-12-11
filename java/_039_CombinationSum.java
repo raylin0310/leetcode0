@@ -5,6 +5,7 @@
  * @copyright Copyright 2018 Thunisoft, Inc. All rights reserved.
  */
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -48,8 +49,27 @@ public class _039_CombinationSum {
 	1 <= target <= 500
 	 */
 
-	public List<List<Integer>> combinationSum(int[] candidates, int target) {
+	public static List<List<Integer>> combinationSum(int[] candidates, int target) {
+		List<List<Integer>> res = new ArrayList<>();
+		dfs(res, new ArrayList<>(), candidates, 0, target);
+		return res;
+	}
 
-		return null;
+	public static void dfs(List<List<Integer>> res, List<Integer> path, int[] candidates, int start, int target) {
+		if (target == 0) {
+			res.add(new ArrayList<>(path));
+			return;
+		}
+		for (int i = start; i < candidates.length && target > 0; i++) {
+			path.add(candidates[i]);
+			dfs(res, path, candidates, i, target - candidates[i]);
+			path.remove(path.size() - 1);
+		}
+	}
+
+	public static void main(String[] args) {
+		int[] nums = {2, 3, 5};
+		int target = 8;
+		System.out.println(combinationSum(nums, target).toString());
 	}
 }
