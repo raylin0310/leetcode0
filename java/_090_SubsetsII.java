@@ -57,7 +57,6 @@ public class _090_SubsetsII {
 		res.add(new ArrayList<>(list));
 		for (int i = start; i < nums.length; i++) {
 			if (i != start && nums[i] == nums[i - 1]) {
-				System.out.println("res：" + res.toString() + "\tindex：" + start + "\ti：" + i + "\tlist：" + list.toString());
 				continue;
 			}
 			list.add(nums[i]);

@@ -70,6 +70,7 @@ public class _039_CombinationSum {
 	public static void main(String[] args) {
 		int[] nums = {2, 3, 5};
 		int target = 8;
+		// [[2, 2, 2, 2], [2, 3, 3], [3, 5]]
 		System.out.println(combinationSum(nums, target).toString());
 	}
 }
