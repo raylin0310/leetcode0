@@ -55,11 +55,13 @@ public class _047_PermutationsII {
 			return;
 		}
 		for (int i = 0; i < nums.length; i++) {
+			// 因为存在重复的数，所以这里用i而不是nums[i]
 			if (used[i]) {
 				continue;
 			}
 			// 不加 !used[i - 1] 会把第二层的第二个1给弄掉，也就是 第一个数取1，循环第二层的时候，第二个1
 			// 跟 40题组合不同，组合是不允许重复的。即{2,4}和{4,2}是一个，所以每次dfs，下一层的start总是当前i+1
+			// 而排列，每下一层都是从0开始
 			// https://leetcode-cn.com/problems/permutations-ii/solution/hui-su-suan-fa-python-dai-ma-java-dai-ma-by-liwe-2/
 			if (i > 0 && nums[i] == nums[i - 1] && !used[i - 1]) {
 				continue;
