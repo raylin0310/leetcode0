@@ -55,7 +55,7 @@ public class _060_PermutationSequence {
 
 	public static void main(String[] args) {
 		Solution solution = new Solution();
-		System.out.println(solution.getPermutation(4, 15));
+		System.out.println(solution.getPermutation(4, 9));
 	}
 
 	static class Solution {
@@ -82,22 +82,24 @@ public class _060_PermutationSequence {
 			// 查找全排列需要的布尔数组
 			used = new boolean[n + 1];
 			StringBuilder path = new StringBuilder();
-			dfs(0, path);
+			dfs(1, path);
 			return path.toString();
 		}
 
 
 		/**
-		 * @param index 在这一步之前已经选择了几个数字，其值恰好等于这一步需要确定的下标位置
+		 * @param usedCount 在这一步之前已经选择了几个数字，其值恰好等于这一步需要确定的下标位置
 		 * @param path
 		 */
-		private void dfs(int index, StringBuilder path) {
-			if (index == n) {
+		private void dfs(int usedCount, StringBuilder path) {
+			if (usedCount > n ) {
 				return;
 			}
 
 			// 计算还未确定的数字的全排列的个数，第 1 次进入的时候是 n - 1
-			int cnt = factorial[n - 1 - index];
+			// n  - usedCount 表示节点下面可以排列的数,其中index表示已经使用的个数
+			// 比如n=3,usedCount=0，表示选择第一个数1，那么剩下两个数可以排列，也就是2!，也就是factorial[2]
+			int cnt = factorial[n - usedCount];
 			for (int i = 1; i <= n; i++) {
 				if (used[i]) {
 					continue;
@@ -110,7 +112,7 @@ public class _060_PermutationSequence {
 				}
 				path.append(i);
 				used[i] = true;
-				dfs(index + 1, path);
+				dfs(usedCount + 1, path);
 				// 注意 1：不可以回溯（重置变量），算法设计是「一下子来到叶子结点」，没有回头的过程
 				// 注意 2：这里要加 return，后面的数没有必要遍历去尝试了
 				return;
