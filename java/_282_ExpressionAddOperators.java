@@ -59,8 +59,8 @@ public class _282_ExpressionAddOperators {
 		if (pos == num.length()) {
 			if (target == val) {
 				res.add(path);
-				return;
 			}
+			return;
 		}
 		for (int i = pos; i < num.length(); i++) {
 			if (i != pos && num.charAt(pos) == '0') {
