@@ -63,7 +63,7 @@ public class _118_PascalsTriangle {
 
 	public static void main(String[] args) {
 		_118_PascalsTriangle test = new _118_PascalsTriangle();
-		List<List<Integer>> res = test.generate2(6);
+		List<List<Integer>> res = test.generate(6);
 		for (List<Integer> re : res) {
 			System.out.println(re.toString());
 		}

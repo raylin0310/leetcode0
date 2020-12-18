@@ -52,23 +52,35 @@ public class _062_UniquePaths {
 	// time : O(n * m) space : (n * m)
 
 	public static int uniquePaths(int m, int n) {
-		int[][] dp = new int[m + 1][n + 1];
-		for (int i = 1; i <= m; i++) {
-			dp[i][1] = 1;
+		int[][] dp = new int[m][n];
+		for (int i = 0; i < m; i++) {
+			dp[i][0] = 1;
 		}
-		for (int i = 1; i <= n; i++) {
-			dp[1][i] = 1;
+		for (int i = 0; i < n; i++) {
+			dp[0][i] = 1;
 		}
-		for (int i = 2; i <= m; i++) {
-			for (int j = 2; j <= n; j++) {
+		for (int i = 1; i < m; i++) {
+			for (int j = 1; j < n; j++) {
 				dp[i][j] = dp[i - 1][j] + dp[i][j - 1];
 			}
 		}
-		return dp[m][n];
+		return dp[m - 1][n - 1];
 	}
 
 
-	// time : O(n * m) space : O(n)  滚动数组
+	/*
+	 time : O(n * m) space : O(n)  滚动数组
+
+	「滚动数组思想」是一种常见的动态规划优化方法，在我们的题目中已经多次使用到，例如「剑指 Offer 46. 把数字翻译成字符串」、「70. 爬楼梯」等，
+	当我们定义的状态在动态规划的转移方程中只和某几个状态相关的时候，就可以考虑这种优化方法，目的是给空间复杂度「降维」。
+	如果你还不知道什么是「滚动数组思想」，一定要查阅相关资料进行学习哦。
+
+	作者：LeetCode-Solution
+	链接：https://leetcode-cn.com/problems/unique-paths-ii/solution/bu-tong-lu-jing-ii-by-leetcode-solution-2/
+	来源：力扣（LeetCode）
+	著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。
+	 */
+
 	public static int uniquePaths2(int m, int n) {
 		int[] dp = new int[n];
 		dp[0] = 1;
