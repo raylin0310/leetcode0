@@ -38,10 +38,8 @@ public class _279_PerfectSquares {
 		dp[0] = 0;
 		for (int i = 0; i <= n; i++) {
 			for (int j = 1; j * j <= i; j++) {
-				int m1 = dp[i];
-				// +1 是因为要算上j,比如 13 - 3*3 = 4（2*2） 那么个数就是1(3)+1(2) = 2
-				int m2 = dp[i - j * j] + 1;
-				dp[i] = Math.min(m1, m2);
+				// +1 是因为要算上被减去的j,比如 13 - 3*3 = 4（2*2） 那么个数就是1(3)+1(2) = 2
+				dp[i] = Math.min(dp[i], dp[i - j * j] + 1);
 			}
 		}
 		return dp[n];
