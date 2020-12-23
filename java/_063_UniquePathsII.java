@@ -39,8 +39,8 @@ public class _063_UniquePathsII {
 				if (obstacleGrid[i][j] == 1) {
 					dp[j] = 0;
 				} else if (j > 0) {
-					// j > 0防止ArrayIndexOutOfBoundsException
-					dp[j] += dp[j - 1];
+					//j=0时，也就是第一列，只有一种路径
+					dp[j] = dp[j] + dp[j - 1];
 				}
 			}
 		}
