@@ -1,4 +1,4 @@
-import java.util.Random;
+
 
 public class QuickSort {
 
@@ -59,8 +59,8 @@ public class QuickSort {
 	}
 
 	public static void main(String[] args) {
-		int[] nums = {5, 2, 3, 9, 6, 4, 3};
-		sort(nums);
+		int[] nums = {1, 2, 3, 4, 5};
+		System.out.println(partition2(nums, 0, nums.length));
 		AU.print(nums);
 	}
 }

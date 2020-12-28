@@ -56,16 +56,14 @@ public class ListNode {
 	}
 
 	public static ListNode build(int[] nums) {
-		ListNode left = new ListNode();
-		ListNode root = left;
-		for (int i = 0; i < nums.length; i++) {
-			left.val = nums[i];
-			if (i != nums.length - 1) {
-				left.next = new ListNode();
-				left = left.next;
-			}
+		// Now convert that list into linked list
+		ListNode dummyRoot = new ListNode(0);
+		ListNode ptr = dummyRoot;
+		for(int item : nums) {
+			ptr.next = new ListNode(item);
+			ptr = ptr.next;
 		}
-		return root;
+		return dummyRoot.next;
 	}
 
 	public static void main(String[] args) {
