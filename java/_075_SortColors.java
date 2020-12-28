@@ -38,6 +38,7 @@ public class _075_SortColors {
 		if (nums == null || nums.length == 0) {
 			return;
 		}
+		// left 表示最后一个0的下一个位置，当下一次的数字是零的时候，就和left交换，并left往后移动一步
 		int left = 0;
 		int right = nums.length - 1;
 		int index = 0;
@@ -54,7 +55,7 @@ public class _075_SortColors {
 
 
 	public static void main(String[] args) {
-		int[] nums = {0, 0, 1, 0, 1, 0};
+		int[] nums = {2,1,1,0,1,1,0};
 		sortColors(nums);
 		AU.print(nums);
 	}
