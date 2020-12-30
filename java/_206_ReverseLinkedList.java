@@ -6,7 +6,7 @@
  */
 
 /**
- * 反转链表
+ * 反转链表 II
  * @author lilin
  * @date 2020-12-28 14:35
  */
@@ -16,7 +16,7 @@ public class _206_ReverseLinkedList {
 		ListNode pre = null;
 		while (head != null) {
 			ListNode temp = head.next;
-			// 这里相当于是个栈，当前head总是在栈顶，相当于一直在链表头部添加node
+			// 相当于一直在链表头部添加node
 			head.next = pre;
 			pre = head;
 			head = temp;
