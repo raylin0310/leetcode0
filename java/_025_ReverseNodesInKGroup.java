@@ -99,7 +99,7 @@ public class _025_ReverseNodesInKGroup {
 			pre.next = head;
 			// tail=1,4,5
 			tail.next = nex;
-			//pre=1，即后一段的head的前一个,pre的作用是为了链接下一段排序后的链表，跟初始的dummy含义相同
+			//pre=1，即后一段的head的前一个,pre的作用是为了链接下一段排序后的链表，跟初始的dummy含义相同，其实这里也可以参考递归方法里面的原地翻转实现，
 			pre = tail;
 			// head=4
 			head = tail.next;

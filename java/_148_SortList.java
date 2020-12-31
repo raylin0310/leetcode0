@@ -43,27 +43,23 @@ public class _148_SortList {
 		// 分右半部分
 		ListNode right = sort(l2);
 		// 归
-		return mergeTwoLists(left, right);
+		return merge(left, right);
 	}
 
-	public static ListNode mergeTwoLists(ListNode l1, ListNode l2) {
+	public static ListNode merge(ListNode l1, ListNode l2) {
 		ListNode dummy = new ListNode(0);
-		ListNode cur = dummy;
+		ListNode tail = dummy;
 		while (l1 != null && l2 != null) {
 			if (l1.val <= l2.val) {
-				cur.next = l1;
+				tail.next = l1;
 				l1 = l1.next;
 			} else {
-				cur.next = l2;
+				tail.next = l2;
 				l2 = l2.next;
 			}
-			cur = cur.next;
+			tail = tail.next;
 		}
-		if (l1 != null) {
-			cur.next = l1;
-		} else {
-			cur.next = l2;
-		}
+		tail.next = l1 != null ? l1 : l2;
 		return dummy.next;
 	}
 
@@ -110,7 +106,7 @@ public class _148_SortList {
 					next = curr.next;
 					curr.next = null;
 				}
-				ListNode merged = mergeTwoLists(head1, head2);
+				ListNode merged = merge(head1, head2);
 				prev.next = merged;
 				while (prev.next != null) {
 					prev = prev.next;
