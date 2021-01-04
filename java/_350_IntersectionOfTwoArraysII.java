@@ -44,7 +44,7 @@ public class _350_IntersectionOfTwoArraysII {
 	著作权归领扣网络所有。商业转载请联系官方授权，非商业转载请注明出处。
 	 */
 
-	// HashMap, time : O(n), space : O(n);
+	// HashMap, time : O(n+m), space : O(min(n,m));
 	public static int[] intersect(int[] nums1, int[] nums2) {
 		HashMap<Integer, Integer> map = new HashMap<>();
 		List<Integer> ret = new ArrayList<>();
@@ -71,7 +71,7 @@ public class _350_IntersectionOfTwoArraysII {
 		return res;
 	}
 
-	// Arrays.sort time : O(nlogn) space : O(n);
+	// Arrays.sort time : O(nlogn+mlogm) space : O(n);
 	public static int[] intersect2(int[] nums1, int[] nums2) {
 		Arrays.sort(nums1);
 		Arrays.sort(nums2);

@@ -45,6 +45,7 @@ public class _154_FindMinimumInRotatedSortedArrayII {
 			} else if (nums[mid] > nums[r]) {
 				l = mid + 1;
 			} else {
+				// when num[mid] and num[r] are same
 				r--;
 			}
 		}

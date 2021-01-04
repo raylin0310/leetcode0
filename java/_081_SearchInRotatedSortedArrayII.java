@@ -36,42 +36,12 @@ public class _081_SearchInRotatedSortedArrayII {
 	著作权归领扣网络所有。商业转载请联系官方授权，非商业转载请注明出处。
 	 */
 
+	/*
+	 跟33题不同的时，33题是没有重复的，比如5,10,5,5,5,5 ，target=10，中位数1和最左侧数1是相等的，
+	 那么我们该取左半部分还是右半部分呢？只需要让left++，然后继续循环即可
+	 */
 
 	public static boolean search(int[] nums, int target) {
-		if (nums == null || nums.length == 0) {
-			return false;
-		}
-		int start = 0;
-		int end = nums.length - 1;
-		while (start + 1 < end) {
-			int mid = (end - start) / 2 + start;
-			if (nums[mid] == target) {
-				return true;
-			}
-			if (nums[start] == nums[mid] && nums[mid] == nums[end]) {
-				start++;
-				end--;
-			} else if (nums[start] <= nums[mid]) {
-				if (nums[start] <= target && target <= nums[mid]) {
-					end = mid;
-				} else {
-					start = mid;
-				}
-			} else {
-				if (nums[mid] <= target && target <= nums[end]) {
-					start = mid;
-				} else {
-					end = mid;
-				}
-			}
-		}
-		if (nums[start] == target || nums[end] == target) {
-			return true;
-		}
-		return false;
-	}
-
-	public static boolean search2(int[] nums, int target) {
 		if (nums == null || nums.length == 0) {
 			return false;
 		}
@@ -113,6 +83,5 @@ public class _081_SearchInRotatedSortedArrayII {
 	public static void main(String[] args) {
 		int[] nums = {1,0,1,1,1};
 		System.out.println(search(nums, 0));
-		System.out.println(search2(nums, 0));
 	}
 }

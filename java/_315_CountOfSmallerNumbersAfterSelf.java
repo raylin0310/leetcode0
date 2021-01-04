@@ -74,6 +74,14 @@ public class _315_CountOfSmallerNumbersAfterSelf {
 		}
 		mergeOfTwoSortedArrAndCountSmaller(nums, l, mid, r);
 	}
+	/*
+	 这里跟剑指offer的51求逆序对不同的点是：
+	 这里在计算count时，是以i节点开始的，也就是从左往右，也就是计算的左侧的num[i]（l<=i<=mid），
+	 这样子count[indexs[k]]里面的indexs[k]才能正确的值
+	 因为题目要求是的“counts[i] 的值是 nums[i] 右侧小于nums[i] 的元素的数量”
+	 所以一定是以“左边”作为标准的
+	 而51求逆序对，没有考虑下标，只计算了个数
+	 */
 
 	public void mergeOfTwoSortedArrAndCountSmaller(int[] nums, int l, int mid, int r) {
 		for (int i = l; i <= r; i++) {

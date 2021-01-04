@@ -75,8 +75,28 @@ public class _034_FindFirstAndLastPositionOfElementInSortedArray {
 	}
 
 	/*
-	这里可以用左闭右开的二分法写
+	 左闭右开
 	 */
+
+	public static int findFirst2(int[] nums, int target) {
+		int left = 0;
+		int right = nums.length;
+
+		while (left < right) {
+			int mid = left + (right - left) / 2;
+			if (nums[mid] == target) {
+				right = mid;
+			} else if (nums[mid] < target) {
+				left = mid + 1;
+			} else {
+				right = mid;
+			}
+		}
+		if (left != nums.length && nums[left] == target) {
+			return left;
+		}
+		return -1;
+	}
 
 	public static int findLast(int[] nums, int target) {
 		int left = 0;
@@ -101,11 +121,9 @@ public class _034_FindFirstAndLastPositionOfElementInSortedArray {
 	}
 
 	public static void main(String[] args) {
-		int[] nums = {5, 7, 7, 8, 8, 10};
-//		int[] nums2 = {1};
-//		int[] nums3 = {5, 7, 7, 8, 8, 10};
-//		AU.print(searchRange(nums3, 6));
+		int[] nums = {4, 5, 6, 7};
+		int[] nums1 = {5, 7, 7, 8, 8, 10};
+		System.out.println(searchRange(nums1, 8));
 
-		System.out.println(findFirst(nums,6));
 	}
 }

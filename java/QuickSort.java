@@ -10,7 +10,7 @@ public class QuickSort {
 		if (left >= right) {
 			return;
 		}
-		int partition = partition3(nums, left, right);
+		int partition = partition(nums, left, right);
 		sort(nums, left, partition - 1);
 		sort(nums, partition + 1, right);
 	}

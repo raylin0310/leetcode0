@@ -31,7 +31,7 @@ public class _349_IntersectionOfTwoArrays {
 	著作权归领扣网络所有。商业转载请联系官方授权，非商业转载请注明出处。
 	 */
 
-	//平均情况下，这种方法的时间复杂度为 O(n+m)。
+	//平均情况下，time: O(n+m)，space:O(n+m)
 
 	public static int[] intersection(int[] nums1, int[] nums2) {
 		if (nums1 == null || nums1.length == 0 || nums2 == null || nums2.length == 0) {
@@ -56,7 +56,7 @@ public class _349_IntersectionOfTwoArrays {
 		return res;
 	}
 
-	// Arrays.sort time : O(nlogn) space : O(n);
+	// Arrays.sort time : O(nlogn+mlogm) space : O(logn+logm);
 	//如果数组都是有序的话，这种方法要好
 	public static int[] intersection2(int[] nums1, int[] nums2) {
 		if (nums1 == null || nums1.length == 0 || nums2 == null || nums2.length == 0) {

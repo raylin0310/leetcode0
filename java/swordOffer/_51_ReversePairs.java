@@ -6,6 +6,8 @@
  */
 package swordOffer;
 
+import java.util.Arrays;
+
 /**
  * _51_数组中的逆序对
  * @author lilin
@@ -34,11 +36,7 @@ public class _51_ReversePairs {
 		if (len < 2) {
 			return 0;
 		}
-
-		int[] copy = new int[len];
-		for (int i = 0; i < len; i++) {
-			copy[i] = nums[i];
-		}
+		int[] copy = Arrays.copyOf(nums, len);
 
 		int[] temp = new int[len];
 		return reversePairs(copy, 0, len - 1, temp);
@@ -105,7 +103,7 @@ public class _51_ReversePairs {
 				//左侧已经用尽
 				nums[k] = temp[j++];
 			} else if (j > right) {
-				// 右侧已经用尽
+				// 右侧已经用尽，说明当前temp[i]大于右侧所有的元素
 				nums[k] = temp[i++];
 				count += (right - mid);
 			} else if (temp[i] <= temp[j]) {
