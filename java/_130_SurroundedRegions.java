@@ -44,6 +44,8 @@ public class _130_SurroundedRegions {
 
 	首先找到突破口，就是不满足被包围的情况，即边界上等于O的坐标，顺着这个左边开始搜索，把相邻的都设置成另外一个值1，
 	当边界情况都找出来后，开始一层一层遍历二维数组，当为0时，满足要求，设置为X，当为1时，这个是与边界相连的，我们还原回来，设置为0
+	time:O(nm)
+	space:O(nm)
 	 */
 
 	public static void solve(char[][] board) {
