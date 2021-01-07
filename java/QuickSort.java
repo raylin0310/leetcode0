@@ -1,4 +1,4 @@
-
+import java.util.Random;
 
 public class QuickSort {
 
@@ -17,8 +17,16 @@ public class QuickSort {
 
 	//快排partition函数
 
+	Random random = new Random();
+
+	public int randomPartition(int[] a, int l, int r) {
+		// 随机
+		int i = random.nextInt(r - l + 1) + l;
+		AU.swap(a, i, r);
+		return partition(a, l, r);
+	}
+
 	private static int partition(int[] nums, int left, int right) {
-		// 这里选取pivot的值，可以用随机数选择Index
 		int pivot = nums[right];
 		int start = left;
 		for (int i = left; i <= right; i++) {
