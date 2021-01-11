@@ -7,10 +7,6 @@ public class _119_PascalsTriangleII {
 
 		给定一个非负索引 k，其中 k ≤ 33，返回杨辉三角的第 k 行。
 
-		Note that the row index starts from 0.
-
-		In Pascal's triangle, each number is the sum of the two numbers directly above it.
-
 		Example:
 
 		Input: 3
@@ -37,11 +33,11 @@ public class _119_PascalsTriangleII {
 	 * 动态规划
 	 */
 
-	public List<Integer> getRow(int rowIndex) {
+	public static List<Integer> getRow(int rowIndex) {
 		List<Integer> triangle = new ArrayList<>();
 		for (int i = 0; i <= rowIndex; i++) {
 			triangle.add(0, 1);
-			for (int j = 1; j < triangle.size() - 1; j++) {
+			for (int j = 1; j < i; j++) {
 				triangle.set(j, triangle.get(j) + triangle.get(j + 1));
 			}
 		}
@@ -49,8 +45,6 @@ public class _119_PascalsTriangleII {
 	}
 
 	public static void main(String[] args) {
-		_119_PascalsTriangleII test = new _119_PascalsTriangleII();
-		List<Integer> row = test.getRow(5);
-		System.out.println(row.toString());
+		System.out.println(getRow(2));
 	}
 }

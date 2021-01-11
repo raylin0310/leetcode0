@@ -14,26 +14,26 @@ public class _080_RemoveDuplicatesfromSortedArrayII {
 
 	不要使用额外的数组空间，你必须在原地修改输入数组并在使用 O(1) 额外空间的条件下完成。
 
-	Example 1:
-
-	Given nums = [1,1,1,2,2,3],
-
-	Your function should return length = 5, with the first five elements of nums being 1, 1, 2, 2 and 3 respectively.
-
-	It doesn't matter what you leave beyond the returned length.
-	Example 2:
-
-	Given nums = [0,0,1,1,1,1,2,3,3],
-
-	Your function should return length = 7, with the first seven elements of nums being modified to 0, 0, 1, 1, 2, 3 and 3 respectively.
-
-	It doesn't matter what values are set beyond the returned length.
+	示例 1：
+	
+	输入：nums = [1,1,1,2,2,3]
+	输出：5, nums = [1,1,2,2,3]
+	解释：函数应返回新长度 length = 5, 并且原数组的前五个元素被修改为 1, 1, 2, 2, 3 。 你不需要考虑数组中超出新长度后面的元素。
+	示例 2：
+	
+	输入：nums = [0,0,1,1,1,1,2,3,3]
+	输出：7, nums = [0,0,1,1,2,3,3]
+	解释：函数应返回新长度 length = 7, 并且原数组的前五个元素被修改为0, 0, 1, 1, 2, 3, 3 。 你不需要考虑数组中超出新长度后面的元素。
+	
+	来源：力扣（LeetCode）
+	链接：https://leetcode-cn.com/problems/remove-duplicates-from-sorted-array-ii
+	著作权归领扣网络所有。商业转载请联系官方授权，非商业转载请注明出处。
 */
 
 	// {1,1,1,2,2,3};
 	// {1,1,2,2,2,3};
 
-	public int removeDuplicates(int[] nums) {
+	public static int removeDuplicates(int[] nums) {
 		if (nums.length < 2) {
 			return nums.length;
 		}
@@ -48,20 +48,10 @@ public class _080_RemoveDuplicatesfromSortedArrayII {
 		return nextPutIndex;
 	}
 
-	public int removeDuplicates2(int[] nums) {
-		int i = 0;
-		for (int n : nums) {
-			if (i < 2 || n > nums[i - 2]) {
-				nums[i++] = n;
-			}
-		}
-		return i;
-	}
-
 	public static void main(String[] args) {
 		//int[] nums = {0, 0, 1, 1, 1, 1, 2, 3, 3, 3, 3, 4};
 		int[] nums = {1, 1, 1, 2, 2, 3};
-		int n = new _080_RemoveDuplicatesfromSortedArrayII().removeDuplicates2(nums);
+		int n = removeDuplicates(nums);
 		System.out.println("n: " + n);
 		for (int i = 0; i < n; i++) {
 			System.out.print(nums[i] + "\t");

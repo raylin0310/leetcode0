@@ -2,28 +2,32 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * _229_MajorityElementII
+ * 众数II
  * @author lilin
  * @date 2020-3-24 10:46
  */
 public class _229_MajorityElementII {
 /*
-	Given an integer array of size n, find all elements that appear more than ⌊ n/3 ⌋ times.
+	给定一个大小为n的整数数组，找出其中所有出现超过⌊ n/3 ⌋次的元素。
+	
+	进阶：尝试设计时间复杂度为 O(n)、空间复杂度为 O(1)的算法解决此问题。
 
-	给定一个大小为 n 的数组，找出其中所有出现超过 ⌊ n/3 ⌋ 次的元素。
-
-	Note: The algorithm should run in linear time and in O(1) space.
-
-	说明: 要求算法的时间复杂度为 O(n)，空间复杂度为 O(1)。
-
-	Example 1:
-
-	Input: [3,2,3]
-	Output: [3]
-	Example 2:
-
-	Input: [1,1,1,3,3,2,2,2]
-	Output: [1,2]
+	示例1：
+	
+	输入：[3,2,3]
+	输出：[3]
+	示例 2：
+	
+	输入：nums = [1]
+	输出：[1]
+	示例 3：
+	
+	输入：[1,1,1,3,3,2,2,2]
+	输出：[1,2]
+	
+	来源：力扣（LeetCode）
+	链接：https://leetcode-cn.com/problems/majority-element-ii
+	著作权归领扣网络所有。商业转载请联系官方授权，非商业转载请注明出处。
 */
 
 	/*
@@ -38,8 +42,8 @@ public class _229_MajorityElementII {
 	 * 作者：jerry_nju
 	 * 链接：https://leetcode-cn.com/problems/majority-element-ii/solution/169ti-sheng-ji-ban-xiang-jie-zhu-xing-jie-shi-tong/
 	 * 来源：力扣（LeetCode）
-	 *
 	 */
+
 	public List<Integer> majorityElement(int[] nums) {
 		List<Integer> result = new ArrayList<>();
 		int num1 = 0, count1 = 0;
@@ -62,7 +66,7 @@ public class _229_MajorityElementII {
 		}
 		count1 = 0;
 		count2 = 0;
-		// 验证
+		// 跟169题不一样的是，这题没有保证一定存在大于1/3的数，所以必须验证
 		for (int num : nums) {
 			if (num1 == num) {
 				count1++;
@@ -81,7 +85,7 @@ public class _229_MajorityElementII {
 
 	public static void main(String[] args) {
 		_229_MajorityElementII test = new _229_MajorityElementII();
-		int[] nums = {1, 1, 1, 3, 3, 2, 2, 2};
+		int[] nums = {1, 1, 1, 4, 5, 6, 7, 8};
 		System.out.println(test.majorityElement(nums).toString());
 	}
 }

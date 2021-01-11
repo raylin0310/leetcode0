@@ -1,10 +1,12 @@
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * 杨辉三角
+ */
+
 public class _118_PascalsTriangle {
 /*
-	Given a non-negative integer numRows, generate the first numRows of triangle's triangle.
-
 	给定一个非负整数 numRows，生成杨辉三角的前 numRows 行。
 
 	In triangle's triangle, each number is the sum of the two numbers directly above it.

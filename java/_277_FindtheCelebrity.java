@@ -1,15 +1,13 @@
 
 /**
- * _277_FindtheCelebrity
+ * 找名人
  * @author lilin
  * @date 2020-3-5 15:46
  */
 public class _277_FindtheCelebrity {
 /*
-	Suppose you are at a party with n people (labeled from 0 to n - 1) and among them, there may exist one celebrity.
-	The definition of a celebrity is that all the other n - 1 people know him/her but he/she does not know any of them.
-	You are given a helper function bool knows(a, b) which tells you whether A knows B.
-	Implement a function int findCelebrity(n), your function should minimize the number of calls to knows.
+	这道题让我们在一群人中寻找名人，所谓名人就是每个人都认识他，他却不认识任何人，限定了只有1个或0个名人，
+	给定了一个 API 函数，输入a和b，用来判断a是否认识b，让我们尽可能少的调用这个函数，来找出人群中的名人。
     0 1 2 3 4 5
 
 	celebrity = 3
