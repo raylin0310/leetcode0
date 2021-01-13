@@ -23,7 +23,7 @@ public class _220_ContainsDuplicateIII {
 	Output: false
 */
 
-	public boolean containsNearbyAlmostDuplicate(int[] nums, int k, int t) {
+	public static boolean containsNearbyAlmostDuplicate(int[] nums, int k, int t) {
 		for (int i = 0; i < nums.length; i++) {
 			for (int j = Math.max(i - k, 0); j < i; j++) {
 				if (Math.abs((long) nums[i] - (long) nums[j]) <= t) {
@@ -42,7 +42,7 @@ public class _220_ContainsDuplicateIII {
 	 *
 	 */
 
-	public boolean containsNearbyAlmostDuplicate2(int[] nums, int k, int t) {
+	public static boolean containsNearbyAlmostDuplicate2(int[] nums, int k, int t) {
 		TreeSet<Long> set = new TreeSet<>();
 		for (int i = 0; i < nums.length; i++) {
 			Long floor = set.floor((long) nums[i] + t);
@@ -62,7 +62,6 @@ public class _220_ContainsDuplicateIII {
 	}
 
 	public static void main(String[] args) {
-		_220_ContainsDuplicateIII test = new _220_ContainsDuplicateIII();
 		int[] nums = {1, 0, 1, 1};
 		int k = 1;
 		int t = 2;
@@ -70,8 +69,8 @@ public class _220_ContainsDuplicateIII {
 		int[] nums2 = {-1, 2147483647};
 		int k2 = 1;
 		int t2 = 2147483647;
-		System.out.println(test.containsNearbyAlmostDuplicate2(nums, k, t));
-		System.out.println(test.containsNearbyAlmostDuplicate2(nums2, k2, t2));
+		System.out.println(containsNearbyAlmostDuplicate2(nums, k, t));
+		System.out.println(containsNearbyAlmostDuplicate2(nums2, k2, t2));
 
 	}
 }

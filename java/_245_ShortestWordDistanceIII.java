@@ -1,11 +1,6 @@
 public class _245_ShortestWordDistanceIII {
 /*
-	This is afollow upofShortest Word Distance. The only difference is nowword1could be the same a sword2.
-
-	Given a list of words and two wordsword1andword2,
-	return the shortest distance between these two words in the list.
-
-	word1andword2may be the same and they represent two individual words in the list.
+	跟243题不同的是：word1和word2可能会相同
 
 	For example,
 	Assume that words =["practice", "makes", "perfect", "coding", "makes"].
@@ -17,7 +12,7 @@ public class _245_ShortestWordDistanceIII {
 	You may assumeword1andword2are both in the list.
 */
 
-	public int shortestDistance(String[] words, String word1, String word2) {
+	public static int shortestDistance(String[] words, String word1, String word2) {
 		int distance = Integer.MAX_VALUE;
 		for (int i = 0; i < words.length; i++) {
 			if (words[i].equals(word1)) {
@@ -31,7 +26,7 @@ public class _245_ShortestWordDistanceIII {
 		return distance;
 	}
 
-	public int shortestDistance2(String[] words, String word1, String word2) {
+	public static int shortestDistance2(String[] words, String word1, String word2) {
 		int distance = Integer.MAX_VALUE;
 		int a = -1;
 		int b = -1;
@@ -53,12 +48,36 @@ public class _245_ShortestWordDistanceIII {
 		return distance;
 	}
 
+	//这种容易理解
+	public static int shortestDistance3(String[] words, String word1, String word2) {
+		int distance = Integer.MAX_VALUE;
+		int a = -1;
+		int b = -1;
+		for (int i = 0; i < words.length; i++) {
+			int temp = a;
+			if (words[i].equals(word1)) {
+				a = i;
+			}
+			if (words[i].equals(word2)) {
+				b = i;
+			}
+			if (a != -1 && b != -1) {
+				if (word1.equals(word2) && temp != -1 && temp != a) {
+					distance = Math.min(distance, Math.abs(temp - a));
+				} else if (a != b) {
+					distance = Math.min(distance, Math.abs(b - a));
+				}
+			}
+		}
+		return distance;
+	}
+
 	public static void main(String[] args) {
-		_245_ShortestWordDistanceIII test = new _245_ShortestWordDistanceIII();
 		String[] words = {"a", "b", "c", "c", "c"};
 		String word1 = "c";
 		String word2 = "c";
-		System.out.println(test.shortestDistance2(words, word1, word2));
+		System.out.println(shortestDistance2(words, word1, word2));
+		System.out.println(shortestDistance3(words, word1, word2));
 	}
 
 }

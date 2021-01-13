@@ -26,7 +26,7 @@ public class _217_ContainsDuplicate {
 	Output: true
 	*/
 
-	public boolean containsDuplicate(int[] nums) {
+	public static boolean containsDuplicate(int[] nums) {
 		Map<Integer, Integer> map = new HashMap<>();
 		for (int num : nums) {
 			if (map.containsKey(num)) {
@@ -37,7 +37,7 @@ public class _217_ContainsDuplicate {
 		return false;
 	}
 
-	public boolean containsDuplicate2(int[] nums) {
+	public static boolean containsDuplicate2(int[] nums) {
 		Arrays.sort(nums);
 		for (int i = 1; i < nums.length; i++) {
 			if (nums[i] == nums[i - 1]) {
@@ -48,8 +48,7 @@ public class _217_ContainsDuplicate {
 	}
 
 	public static void main(String[] args) {
-		_217_ContainsDuplicate test = new _217_ContainsDuplicate();
 		int[] nums = {1, 1, 1, 3, 3, 4, 3, 2, 4, 2};
-		System.out.println(test.containsDuplicate2(nums));
+		System.out.println(containsDuplicate2(nums));
 	}
 }

@@ -25,7 +25,8 @@ public class _219_ContainsDuplicateII {
 	Output: false
 */
 
-	public boolean containsNearbyDuplicate(int[] nums, int k) {
+
+	public static boolean containsNearbyDuplicate(int[] nums, int k) {
 		// map换成set一样
 		Map<Integer, Integer> map = new HashMap<>();
 		for (int i = 0; i < nums.length; i++) {
@@ -44,9 +45,11 @@ public class _219_ContainsDuplicateII {
 	/*
 	 * 线性搜索，维护一个最大宽度为k的滑动窗口，在这个窗口内搜索
 	 * https://leetcode-cn.com/problems/contains-duplicate-ii/solution/cun-zai-zhong-fu-yuan-su-ii-by-leetcode/
+	 * space:O(1)
+	 * time:O(n*min(k,n))
 	 */
 
-	public boolean containsNearbyDuplicate2(int[] nums, int k) {
+	public static boolean containsNearbyDuplicate2(int[] nums, int k) {
 		for (int i = 0; i < nums.length; i++) {
 			for (int j = Math.max(i - k, 0); j < i; j++) {
 				if (nums[i] == nums[j]) {
@@ -58,9 +61,9 @@ public class _219_ContainsDuplicateII {
 	}
 
 	public static void main(String[] args) {
-		_219_ContainsDuplicateII test = new _219_ContainsDuplicateII();
 		int[] nums = {1, 2, 3, 1, 2, 3};
 		int k = 2;
-		System.out.println(test.containsNearbyDuplicate(nums, k));
+		System.out.println(containsNearbyDuplicate(nums, k));
+		System.out.println(containsNearbyDuplicate2(nums, k));
 	}
 }

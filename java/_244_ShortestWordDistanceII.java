@@ -5,14 +5,11 @@ import java.util.Map;
 
 public class _244_ShortestWordDistanceII {
 /*
-	Design a class which receives a list of words in the constructor,
-	and implements a method that takes two wordsword1andword2and
-	return the shortest distance between these two words in the list.
-	Your method will be calledrepeatedlymany times with different parameters.
 
 	请设计一个类，使该类的构造函数能够接收一个单词列表。
 	然后再实现一个方法，该方法能够分别接收两个单词 word1 和 word2，并返回列表中这两个单词之间的最短距离。
-	您的方法将被以不同的参数调用多次。
+
+	您跟243不同的是：的方法将被以不同的参数调用多次。
 
 	Example:
 	Assume that words =["practice", "makes", "perfect", "coding", "makes"].
@@ -37,7 +34,7 @@ public class _244_ShortestWordDistanceII {
 			index.add(i);
 		}
 	}
-
+	//time:O(mn)
 	public int shortest(String word1, String word2) {
 		List<Integer> index1 = map.get(word1);
 		List<Integer> index2 = map.get(word2);
@@ -49,14 +46,14 @@ public class _244_ShortestWordDistanceII {
 		}
 		return distance;
 	}
-
+	//time:O(m+n)
 	public int shortest2(String word1, String word2) {
 		List<Integer> list1 = map.get(word1);
 		List<Integer> list2 = map.get(word2);
 		int distance = Integer.MAX_VALUE;
 		int i = 0;
 		int j = 0;
-		// 类似与归并？
+		// 双指针
 		while (i < list1.size() && j < list2.size()) {
 			Integer index1 = list1.get(i);
 			Integer index2 = list2.get(j);

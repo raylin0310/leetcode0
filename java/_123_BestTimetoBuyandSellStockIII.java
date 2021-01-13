@@ -13,6 +13,10 @@ public class _123_BestTimetoBuyandSellStockIII {
 
 	注意:你不能同时参与多笔交易（你必须在再次购买前出售掉之前的股票）。
 
+	与122题不同的是，只能完成两笔交易，参考下面链接题解
+	https://leetcode-cn.com/circle/article/qiAgHn/
+
+
 	示例1:
 
 	输入: [3,3,5,0,0,3,1,4]
@@ -61,14 +65,17 @@ public class _123_BestTimetoBuyandSellStockIII {
 		int n = prices.length;
 		int[][][] dp = new int[n][max_k + 1][2];
 		for (int i = 0; i < n; i++) {
-			for (int k = max_k; k >= 1; k--) {
+			for (int k = 1; k <= max_k; k++) {
 				if (i == 0) {
 					/* 处理 base case */
 					dp[i][k][0] = 0;
 					dp[i][k][1] = -prices[i];
 					continue;
 				}
+				//i表示这一条结束时的状态
+				//结束如果是现金状态，那么可能为昨天就是现金状态，今天不操作，或者昨天是股票状态今天卖了，次数相同（即第2次买的，这里就是第2次卖）
 				dp[i][k][0] = Math.max(dp[i - 1][k][0], dp[i - 1][k][1] + prices[i]);
+				//结束如果是股票状态，那么可能为昨天就是股票状态，今天不操作，或者昨天是现金状态，今天选择买入，那么“今天买入”就是买入次数+1，今天的买入次数是k，昨天就是k-1
 				dp[i][k][1] = Math.max(dp[i - 1][k][1], dp[i - 1][k - 1][0] - prices[i]);
 			}
 		}

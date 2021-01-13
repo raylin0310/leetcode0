@@ -12,7 +12,7 @@ public class _121_BestTimetoBuyandSellStock {
 
 	注意：你不能在买入股票前卖出股票。
 
-
+	股票问题终极题解：https://leetcode-cn.com/circle/article/qiAgHn/
 
 	示例 1:
 
@@ -33,28 +33,12 @@ public class _121_BestTimetoBuyandSellStock {
 			return 0;
 		}
 		int min = prices[0];
-		int profit = 0;
+		int result = 0;
 		for (int price : prices) {
 			min = Math.min(min, price);
-			profit = Math.max(profit, price - min);
+			result = Math.max(result, price - min);
 		}
-		return profit;
-	}
-
-	public int maxProfit2(int[] prices) {
-		if (prices == null || prices.length < 2) {
-			return 0;
-		}
-		int minprice = Integer.MAX_VALUE;
-		int maxprofit = 0;
-		for (int i = 0; i < prices.length; i++) {
-			if (prices[i] < minprice) {
-				minprice = prices[i];
-			} else if (prices[i] - minprice > maxprofit) {
-				maxprofit = prices[i] - minprice;
-			}
-		}
-		return maxprofit;
+		return result;
 	}
 
 	/*
@@ -77,6 +61,28 @@ public class _121_BestTimetoBuyandSellStock {
 			dp[i][1] = Math.max(dp[i - 1][1], -prices[i]);
 		}
 		return dp[n - 1][0];
+	}
+
+	/*
+	上面的空间优化版本，能优化的目的是dp[1] 只与上一次的dp[1]有关，跟122题不同的是
+	这里只能买一次股票，所以dp[1] = Math.max(dp[1], -prices[i])
+	而122题是dp[i][1] = Math.max(dp[i - 1][1], dp[i - 1][0] - prices[i]);
+	 */
+
+	public static int maxProfit4(int[] prices) {
+		int len = prices.length;
+		if (len < 2) {
+			return 0;
+		}
+
+		int[] dp = new int[2];
+		dp[0] = 0;
+		dp[1] = -prices[0];
+		for (int i = 1; i < len; i++) {
+			dp[0] = Math.max(dp[0], dp[1] + prices[i]);
+			dp[1] = Math.max(dp[1], -prices[i]);
+		}
+		return dp[0];
 	}
 
 

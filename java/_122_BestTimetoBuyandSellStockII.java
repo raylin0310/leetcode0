@@ -12,6 +12,7 @@ public class _122_BestTimetoBuyandSellStockII {
 
 		注意：你不能同时参与多笔交易（你必须在再次购买前出售掉之前的股票）。
 
+		与121题不同的是，可以多次买卖，即买-卖-买-卖
 
 		示例 1:
 
@@ -85,9 +86,48 @@ public class _122_BestTimetoBuyandSellStockII {
 		return dp[len - 1][0];
 	}
 
+	/*
+	 上面的空间优化版本，因为今天的数值只与昨天的有关，与昨天之前的数据无关
+	 */
+
+	public static int maxProfit3(int[] prices) {
+		int len = prices.length;
+		if (len < 2) {
+			return 0;
+		}
+		// 0：持有现金
+		// 1：持有股票
+		int dp0 = 0;
+		int dp1 = -prices[0];
+
+		for (int i = 1; i < len; i++) {
+			int preDp0 = dp0;
+			dp0 = Math.max(dp0, dp1 + prices[i]);
+			dp1 = Math.max(dp1, preDp0 - prices[i]);
+		}
+		return dp0;
+	}
+	//空间优化版本2
+	public static int maxProfit4(int[] prices) {
+		if (prices == null || prices.length == 0) {
+			return 0;
+		}
+		int profit0 = 0, profit1 = -prices[0];
+		int length = prices.length;
+		for (int i = 1; i < length; i++) {
+			int newProfit0 = Math.max(profit0, profit1 + prices[i]);
+			int newProfit1 = Math.max(profit1, profit0 - prices[i]);
+			profit0 = newProfit0;
+			profit1 = newProfit1;
+		}
+		return profit0;
+	}
+
+
 	public static void main(String[] args) {
 		int[] prices = {7, 1, 5, 3, 6, 4};
 		System.out.println(maxProfit2(prices));
+		System.out.println(maxProfit3(prices));
 	}
 
 }

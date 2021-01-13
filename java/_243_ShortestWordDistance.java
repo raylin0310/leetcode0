@@ -1,8 +1,7 @@
 
 public class _243_ShortestWordDistance {
 	/*
-		given a list of words and two wordsword1andword2,
-		return the shortest distance between these two words in the list.
+		这道题给了我们一个单词数组，又给定了两个单词，让求这两个单词之间的最小距离，限定了两个单词不同，而且都在数组中
 
 		For example,
 		Assume that words =["practice", "makes", "perfect", "coding", "makes"].
@@ -10,6 +9,9 @@ public class _243_ShortestWordDistance {
 		Givenword1=“coding”,word2=“practice”, return 3.
 		Givenword1="makes",word2="coding", return 1.
 	*/
+	/*
+	暴力解法 O(n^2)
+	 */
 
 	public int shortestDistance(String[] words, String word1, String word2) {
 		int distance = Integer.MAX_VALUE;
@@ -24,6 +26,10 @@ public class _243_ShortestWordDistance {
 		}
 		return distance;
 	}
+
+	/*
+	 原理是题目求最小距离，那么随着index右移，前面出现的单词肯定越来越远，后面出现相同的直接覆盖，肯定比前面出现的近
+	 */
 
 	public int shortestDistance1(String[] words, String word1, String word2) {
 		int distance = Integer.MAX_VALUE;
