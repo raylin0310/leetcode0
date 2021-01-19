@@ -29,6 +29,7 @@ public class _334_IncreasingTripletSubsequence {
 	输入: [5,4,3,2,1]
 	输出: false
 	*/
+	//参考300
 
 	public static boolean increasingTriplet(int[] nums) {
 		int small = Integer.MAX_VALUE;
@@ -42,7 +43,6 @@ public class _334_IncreasingTripletSubsequence {
 				return true;
 			}
 		}
-
 		return false;
 	}
 
@@ -54,8 +54,16 @@ public class _334_IncreasingTripletSubsequence {
 	 */
 
 	public static void main(String[] args) {
-		int[] nums = {3,5,1,2,3};
-		System.out.println(increasingTriplet(nums));
+		int[] nums = {3, 5, 1, 2, 3};
+		//这个用例就为题300提供了思路，过程如下
+		/*
+		  4
+		  4，7
+		  1，7
+		  1，7，9
+		 */
+		int[] nums2 = {4, 7, 1, 9};
+		System.out.println(increasingTriplet(nums2));
 	}
 
 }

@@ -38,7 +38,7 @@ public class _142_LinkedListCycleII {
 			slow = slow.next;
 			fast = fast.next.next;
 			if (fast == slow) {
-				// 第一次相遇
+				// 第一次相遇后，fast/slow继续走，另一个从头开始走，再次相遇即为入环点
 				while (head != fast) {
 					fast = fast.next;
 					head = head.next;

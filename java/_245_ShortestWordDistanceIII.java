@@ -62,6 +62,7 @@ public class _245_ShortestWordDistanceIII {
 				b = i;
 			}
 			if (a != -1 && b != -1) {
+				//为什么要temp != a：在[a,b,c]  w1=w1=b中，当i=2时，不会进入上面的两个判断，此时temp=a=b=1，这时候不应该进行计算距离
 				if (word1.equals(word2) && temp != -1 && temp != a) {
 					distance = Math.min(distance, Math.abs(temp - a));
 				} else if (a != b) {

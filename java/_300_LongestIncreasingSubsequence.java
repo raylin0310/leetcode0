@@ -119,7 +119,7 @@ public class _300_LongestIncreasingSubsequence {
 	}
 
 	public static void main(String[] args) {
-		int[] nums = {10, 9, 2, 5, 3, 3, 7, 101, 18};
+		int[] nums = {10, 9, 2, 5, 1, 3, 7, 101, 18};
 		System.out.println(lengthOfLIS3(nums));
 	}
 }

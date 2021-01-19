@@ -32,45 +32,77 @@ public class _287_FindtheDuplicateNumber {
 	/*
 	 * 思路：
 	 *
-	 * 这道题要求我们查找的数是一个整数，并且给出了这个整数的范围（在 11 和 nn 之间，包括 1 和 n），并且给出了一些限制，于是可以使用二分查找法定位在一个区间里的整数；
-	 *
-	 * 二分法的思路是先猜一个数（有效范围 [left, right]里的中间数 mid），
-	 * 然后统计原始数组中小于等于这个中间数的元素的个数 cnt，如果 cnt 严格大于 mid，（
-	 * 注意我加了着重号的部分「小于等于」、「严格大于」）。根据抽屉原理，重复元素就在区间 [left, mid] 里；
-	 *
-	 * 与绝大多数二分法问题的不同点是：正着思考是容易的，即：思考哪边区间存在重复数是容易的，因为有抽屉原理做保证。我们通过一个具体的例子来分析应该如何编写代码；
-	 *
-	 * 以 [2, 4, 5, 2, 3, 1, 6, 7] 为例，一共 8 个数，n + 1 = 8，n = 7，根据题目意思，每个数都在 1 和 7 之间。
-	 *
-	 * 例如：区间 [1, 7][1,7] 的中位数是 4，遍历整个数组，统计小于等于 4 的整数的个数，如果不存在重复元素，最多为 44 个。等于 44 的时候区间 [1, 4][1,4] 内也可能有重复元素。但是，如果整个数组里小于等于 4 的整数的个数严格大于 4 的时候，就可以说明重复的数存在于区间 [1, 4][1,4]。
-	 * （即小于4的个数，超过了mid，说明有重复）
+	 * 这道题要求我们查找的数是一个整数，并且给出了这个整数的范围（在 1 和 n 之间，包括 1 和 n），并且给出了一些限制，于是可以使用二分查找法定位在一个区间里的整数；
 	 *
 	 * 说明：由于这个算法是空间敏感的，「用时间换空间」是反常规做法，算法的运行效率肯定不会高。
+	 * space:O(1)，time:O(nlogn) ，二分查找logn，每一次二分需要遍历一次，所以是nlogn
+	 * 	证明方法：假如数组为[1,2,2,3,5,4]，mid=(1+5)/2=3，那么，正常情况下，<=3的个数应该是3个，如果1/2/3其中任何一个数重复了，那么个数都会大于3
+	 *  如果大于3了，说明重复的元素肯定在1、2、3中，那么下一次的mid就是mid=(1+3)/2=2
+	 *  继续统计<=2的个数，发现是3，大于了2，说明重复的元素肯定在1、2中，那么下一次的mid=(1+2)/2=1，
+	 *  继续统计小于1的个数，发现是1，那么重复的元素肯定不是1，所以left = mid + 1 = 2，
+	 *   不满足条件，跳出，返回left=2就是答案
 	 */
 
 
 	public static int findDuplicate(int[] nums) {
-		int min = 0;
-		int max = nums.length - 1;
-		while (min <= max) {
-			int mid = (max - min) / 2 + min;
-			int count = 0;
-			for (int i = 0; i < nums.length; i++) {
-				if (nums[i] <= mid) {
-					count++;
+		int len = nums.length;
+		int left = 1;
+		int right = len - 1;
+		while (left < right) {
+			// 在 Java 里可以这么用，当 left + right 溢出的时候，无符号右移保证结果依然正确
+			int mid = (left + right) >>> 1;
+
+			int cnt = 0;
+			for (int num : nums) {
+				if (num <= mid) {
+					cnt += 1;
 				}
 			}
-			if (count > mid) {
-				max = mid - 1;
+			// 根据抽屉原理，小于等于 4 的个数如果严格大于 4 个
+			// 此时重复元素一定出现在 [1, 4] 区间里
+			if (cnt > mid) {
+				// 重复元素位于区间 [left, mid]
+				right = mid;
 			} else {
-				min = mid + 1;
+				// if 分析正确了以后，else 搜索的区间就是 if 的反面
+				// [mid + 1, right]
+				left = mid + 1;
 			}
 		}
-		return min;
+		return left;
+	}
+
+	/*
+		参考142题，链表入环
+		time : O(n) space : O(1)
+	 */
+
+	public static int findDuplicate2(int[] nums) {
+		if (nums == null || nums.length == 0) {
+			return 0;
+		}
+		int slow = 0;
+		int fast = 0;
+		while (true) {
+			slow = nums[slow];
+			fast = nums[nums[fast]];
+			if (slow == fast) {
+				break;
+			}
+		}
+		int head = 0;
+		while (true) {
+			slow = nums[slow];
+			head = nums[head];
+			if (head == slow) {
+				break;
+			}
+		}
+		return slow;
 	}
 
 	public static void main(String[] args) {
-		int[] nums = {1,3,4,2,2};
+		int[] nums = {1, 2, 3, 4, 4, 5};
 		System.out.println(findDuplicate(nums));
 	}
 }

@@ -39,15 +39,21 @@ public class _135_Candy {
 	 * 著作权归领扣网络所有。商业转载请联系官方授权，非商业转载请注明出处。
 	 */
 
+	/*
+	    time : O(n)
+        space : O(n)
+	 */
+
 
 	public static int candy(int[] ratings) {
 		int[] candies = new int[ratings.length];
 		Arrays.fill(candies, 1);
 		for (int i = 1; i < ratings.length; i++) {
 			if (ratings[i] > ratings[i - 1]) {
-				candies[i] = candies[i-1] + 1;
+				candies[i] = candies[i - 1] + 1;
 			}
 		}
+		System.out.println(Arrays.toString(candies));
 		for (int i = candies.length - 2; i >= 0; i--) {
 			if (ratings[i] > ratings[i + 1]) {
 				candies[i] = Math.max(candies[i], candies[i + 1] + 1);
@@ -57,9 +63,33 @@ public class _135_Candy {
 		return Arrays.stream(candies).sum();
 	}
 
+	public static int candy2(int[] ratings) {
+		int n = ratings.length;
+		int ret = 1;
+		int inc = 1, dec = 0, pre = 1;
+		for (int i = 1; i < n; i++) {
+			if (ratings[i] >= ratings[i - 1]) {
+				dec = 0;
+				pre = ratings[i] == ratings[i - 1] ? 1 : pre + 1;
+				ret += pre;
+				inc = pre;
+			} else {
+				dec++;
+				if (dec == inc) {
+					dec++;
+				}
+				System.out.println("des：" + dec);
+				ret += dec;
+				pre = 1;
+			}
+		}
+		return ret;
+	}
+
 	public static void main(String[] args) {
-		int[] nums = {1,2,87,87,87,2,1};
-		System.out.println(candy(nums));
+		int[] nums = {1, 2, 20, 18, 16, 15, 14};
+		System.out.println("res=" + candy(nums));
+		System.out.println("res=" + candy2(nums));
 	}
 
 }

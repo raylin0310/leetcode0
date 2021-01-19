@@ -36,6 +36,8 @@ public class _164_MaximumGap {
 	*/
 
 	/*
+		普通解法，先排序，再遍历找出相邻最大差值，time：O(n)，简单不容易出错
+
 	 * 我们可以很巧妙地设置每个桶的大小：假设所有元素的最大值为max,最小值为min，元素个数是n，
 	 * 则最大间距将不小于Math.ceil((max-min)/(n-1))。
 	 * 因此，我们设置桶的容量是Math.ceil((max-min)/(n-1))，则桶内的元素的间距肯定不是最大间距，
@@ -71,6 +73,7 @@ public class _164_MaximumGap {
 				continue;
 			}
 			int bucket = (num - min) / gap;
+			// 这里只保留每个桶的最大值和最小值
 			bucketsMin[bucket] = Math.min(num, bucketsMin[bucket]);
 			bucketsMax[bucket] = Math.max(num, bucketsMax[bucket]);
 		}
