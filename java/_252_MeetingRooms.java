@@ -28,7 +28,8 @@ public class _252_MeetingRooms {
 	public boolean canAttendMeetings(Interval[] intervals) {
 		Arrays.sort(intervals, Comparator.comparingInt(x -> x.start));
 		for (int i = 1; i < intervals.length; i++) {
-			if (intervals[i - 1].end > intervals[i].start) {
+			// 当前区间的start小于前一个区间的end，则重叠
+			if (intervals[i].start < intervals[i - 1].end) {
 				return false;
 			}
 		}

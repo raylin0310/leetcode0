@@ -46,6 +46,11 @@ public class _164_MaximumGap {
 	 * 假设 {1, 4, 3, 6};
 	 */
 
+	/*
+	 time : O(n)
+     space : O(n)
+	 */
+
 	public static int maximumGap(int[] nums) {
 		if (nums == null || nums.length < 2) {
 			return 0;

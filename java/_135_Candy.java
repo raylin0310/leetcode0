@@ -62,6 +62,10 @@ public class _135_Candy {
 		System.out.println(Arrays.toString(candies));
 		return Arrays.stream(candies).sum();
 	}
+	/*
+	    time : O(n)
+        space : O(1)
+	 */
 
 	public static int candy2(int[] ratings) {
 		int n = ratings.length;
