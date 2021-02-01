@@ -28,6 +28,8 @@ public class _053_MaximumSubarray {
 	链接：https://leetcode-cn.com/problems/maximum-subarray
 	著作权归领扣网络所有。商业转载请联系官方授权，非商业转载请注明出处。
 
+	题解：动态规划，遇到‘最’，首先想到动态规划
+
 	 */
 
 	// time : O(n) space : O(n);

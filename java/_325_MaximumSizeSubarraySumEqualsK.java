@@ -6,6 +6,7 @@
  */
 
 import java.util.HashMap;
+import java.util.Map;
 
 /**
  * _325_MaximumSizeSubarraySumEqualsK
@@ -71,16 +72,48 @@ public class _325_MaximumSizeSubarraySumEqualsK {
 			if (map.containsKey(nums[i] - k)) {
 				res = Math.max(res, i - map.get(nums[i] - k));
 			}
-			map.putIfAbsent(nums[i],i);
+			map.putIfAbsent(nums[i], i);
+		}
+		return res;
+	}
+
+	public static int maxSubArrayLen2(int[] nums, int k) {
+		if (nums == null || nums.length == 0) {
+			return 0;
+		}
+		int res = 0;
+		Map<Integer, Integer> map = new HashMap<>();
+
+		// 计算前缀和数组，这里有个优化技巧，把计算前缀和和for判断，放在一个循环体里面，这样子可以减少一次循环，参考209题
+		for (int i = 1; i < nums.length; i++) {
+			nums[i] += nums[i - 1];
+		}
+		/*
+		 [1,2,3,4,5]  num=[1,3,6,10,15]
+		 k =5
+		 */
+		for (int i = 0; i < nums.length; i++) {
+			if (nums[i] == k) {
+				res = i + 1;
+			} else if (map.containsKey(nums[i] - k)) {
+				res = Math.max(res, i - map.get(nums[i] - k));
+			}
+			// 因为目标求最长子数组，所以下标要取最小的，即如果前缀和是[1,2,3,1,6]，那么map.get(1)==0,而不是3
+			map.putIfAbsent(nums[i], i);
 		}
 		return res;
 	}
 
 	public static void main(String[] args) {
 		//[1, -1, 5, -2]
-		int[] nums = {1, -1, 5, -2, 3};
-		int[] nums2 = {-1,1,-1,1,-1,1,-1,1};
+		int[] nums1 = {1, -1, 5, -2, 3};
+		int[] nums11 = {1, -1, 5, -2, 3};
+		int[] nums2 = {-1, 1, -1, 1, -1, 1, -1, 1};
+		int[] nums22 = {-1, 1, -1, 1, -1, 1, -1, 1};
+		System.out.println(maxSubArrayLen(nums1, 3));
+		System.out.println(maxSubArrayLen2(nums11, 3));
 		System.out.println(maxSubArrayLen(nums2, 0));
+		System.out.println(maxSubArrayLen2(nums22, 0));
 	}
 
 }

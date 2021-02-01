@@ -37,21 +37,17 @@ public class _238_ProductOfArrayExceptSelf {
 
 	/*
 		思路：除自身以外数组的乘积 = 这个数左边的乘积 乘上 右边的乘积
+		先从左到右遍历，再从右到左遍历
 	 */
-
 
 	public static int[] productExceptSelf(int[] nums) {
 		int[] res = new int[nums.length];
 		res[0] = 1;
-		System.out.println("res[0]=1");
 		for (int i = 1; i < nums.length; i++) {
 			res[i] = res[i - 1] * nums[i - 1];
-			System.out.println("res[" + i + "]=" + res[i]);
 		}
 		// res[i] = i坐标左边所有数字的乘积
 		// 如res[3] = res[2] * num[2] (2下标所有的乘积即num[0]*num[1]，乘上num[2]，即res[3] = num[0]*num[1]*num[2])
-		System.out.println("第一次循环后：");
-		AU.print(res);
 		int right = 1;
 		for (int i = nums.length - 1; i >= 0; i--) {
 			res[i] *= right;

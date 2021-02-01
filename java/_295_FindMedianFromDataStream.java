@@ -69,7 +69,13 @@ public class _295_FindMedianFromDataStream {
 	}
 
 	public void addNum(int num) {
-		large.add((long)num);
+		/*
+			为什么要这样做？
+			因为要平衡两个堆的关系，即低位的总是要小于高位的，
+			考虑只往低位堆加的情况，那么会出现一种情况，即当small=[1,2] lager=[4,5,6]时，这时候addNum(9)，那么就会出现small=[1,2,9]
+			这明显不正确，唯一能保证正确的方法，就是每次都得操作两个堆，先加入高位堆，再把高位堆的最小值放到低位堆里面，这样总是保持两个堆的大小关系
+		 */
+		large.add((long) num);
 		small.add(-large.poll());
 		if (large.size() < small.size()) {
 			large.add(-small.poll());
@@ -77,16 +83,13 @@ public class _295_FindMedianFromDataStream {
 	}
 
 	public double findMedian() {
-		return large.size() > small.size() ? large.peek() : (large.peek() - small.peek()) / 2;
+		return large.size() > small.size() ? large.peek() : (double) (large.peek() - small.peek()) / 2;
 	}
 
 	public static void main(String[] args) {
 		_295_FindMedianFromDataStream test = new _295_FindMedianFromDataStream();
 		test.addNum(1);
 		test.addNum(2);
-		test.addNum(3);
-		test.addNum(4);
-		test.addNum(5);
 		System.out.println(test.findMedian());
 	}
 }

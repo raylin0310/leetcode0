@@ -50,36 +50,43 @@ public class _239_SlidingWindowMaximum {
 	著作权归领扣网络所有。商业转载请联系官方授权，非商业转载请注明出处。
 	 */
 
-	//deque里面放数组下标
+	/*
+	 队列里面放数组下标，因为涉及到位置判断，如果直接放value的话，则没法判断位置关系，而且我们也可以通过下标直接拿到value，
+	 所以，对于数组而言，优先考虑存储下标
 
+	 time : O(n)
+     space : O(k)
+	 */
 
 	public static int[] maxSlidingWindow(int[] nums, int k) {
 		if (nums == null || nums.length == 0) {
 			return new int[0];
 		}
 		Deque<Integer> deque = new LinkedList<>();
-		int[] res = new int[nums.length + 1 - k];
+		int[] res = new int[nums.length - k + 1];
 		for (int i = 0; i < nums.length; i++) {
+			// 1 [2 3] 4 5 ,此时要移除i=0的,即del=i-k=2-2=0
 			if (!deque.isEmpty() && deque.peekFirst() == i - k) {
 				//保持队列里的元素总共不超过k个
-				deque.poll();
+				deque.pollFirst();
 			}
 			while (!deque.isEmpty() && nums[deque.peekLast()] < nums[i]) {
 				//deque.peekLast()即最后一个元素，如果比当前小，则删掉，这样则保持队列的最后一个元素总是当前窗口内最大的
-				deque.removeLast();
+				deque.pollLast();
 			}
 			deque.offerLast(i);
 			if ((i + 1) >= k) {
-				res[i + 1 - k] = nums[deque.peek()];
+				// [1 2] 3 4 5 ，当i+1>=k，即1+1>=2的时候，就开始计算最大值
+				res[i + 1 - k] = nums[deque.peekFirst()];
 			}
 		}
 		return res;
 	}
 
 	public static void main(String[] args) {
-		int[] nums = {1,3,-1,-3,5,3,6,7};
+		int[] nums = {1, 3, -1, -3, 5, 3, 6, 7};
 		//ArrayUtil.toString(maxSlidingWindow(nums,5));
-		int[] nums2 = {100,50,60,30,10};
-		AU.print(maxSlidingWindow(nums2,3));
+		int[] nums2 = {100, 50, 60, 30, 10};
+		AU.print(maxSlidingWindow(nums2, 3));
 	}
 }

@@ -32,13 +32,18 @@ public class _209_MinimumSizeSubarraySum {
 	思路见网站,也可以用滑动窗口
 	 */
 
-	// 滑动窗口，遇到求连续数组（子串）问题，都可以考虑滑动窗口方法
+	// 滑动窗口，遇到求连续数组（子串）问题，都可以考虑滑动窗口方法，这道题能用下面方法做的原因是都是【正整数】，即sum总是递增的
+	/*
+	考虑既有整数也有负数的情况，这里参考325做前缀和map，然后判断map里面是否包含一个num<=sum-s
+	 */
+
 	public static int minSubArrayLen(int s, int[] nums) {
 		int res = Integer.MAX_VALUE;
 		int left = 0, sum = 0;
 		for (int i = 0; i < nums.length; i++) {
 			sum += nums[i];
 			while (left <= i && sum >= s) {
+				// res放在循环体里面计算的原因是：必须要满足sum>=s，才会有答案，也就是return做的判断
 				res = Math.min(res, i - left + 1);
 				sum -= nums[left++];
 			}
