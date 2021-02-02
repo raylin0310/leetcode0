@@ -107,6 +107,26 @@ public class _287_FindtheDuplicateNumber {
 		return slow;
 	}
 
+	/*
+	  这种异或的解法的前提是，只有一个重复的数，并且1-n的数子每个都出现
+	  异或 a^b=1  b^b=0   0^c=c
+	  那么这个解法的原理是 (a^b^c^b) ^ (a^b^c) = b  a^a=0 然后抵消，最后只剩下0^b=b
+	 */
+
+	public static int findDuplicate3(int[] nums) {
+		if (nums == null || nums.length == 0) {
+			return 0;
+		}
+		int x1 = 0;
+		for (int i = 1; i <= nums.length - 1; i++) {
+			x1 = x1 ^ i;
+		}
+		for (int num : nums) {
+			x1 = x1 ^ num;
+		}
+		return x1;
+	}
+
 	public static void main(String[] args) {
 		int[] nums = {1, 2, 3, 4, 4, 5};
 		System.out.println(findDuplicate(nums));

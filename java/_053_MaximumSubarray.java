@@ -39,6 +39,7 @@ public class _053_MaximumSubarray {
 		int res = nums[0];
 		for (int i = 1; i < nums.length; i++) {
 			//要想和最大，那么dp[i-1]就不能是负数
+			// dp[i] = nums[i] + (Math.max(dp[i - 1], 0));
 			dp[i] = nums[i] + (dp[i - 1] < 0 ? 0 : dp[i - 1]);
 			res = Math.max(res, dp[i]);
 		}

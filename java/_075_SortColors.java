@@ -38,24 +38,24 @@ public class _075_SortColors {
 		if (nums == null || nums.length == 0) {
 			return;
 		}
-		// left 表示最后一个0的下一个位置，当下一次的数字是零的时候，就和left交换，并left往后移动一步
-		int left = 0;
-		int right = nums.length - 1;
-		int index = 0;
-		while (index <= right) {
-			if (nums[index] == 0) {
-				AU.swap(nums, index++, left++);
-			} else if (nums[index] == 1) {
-				index++;
+		// l 表示最后一个0的下一个位置，当下一次的数字是零的时候，就和left交换，并left往后移动一步
+		int l = 0;
+		int r = nums.length - 1;
+		int i = 0;
+		while (i <= r) {
+			if (nums[i] == 0) {
+				AU.swap(nums, i++, l++);
+			} else if (nums[i] == 1) {
+				i++;
 			} else {
-				AU.swap(nums, index, right--);
+				AU.swap(nums, i, r--);
 			}
 		}
 	}
 
 
 	public static void main(String[] args) {
-		int[] nums = {2,1,1,0,1,1,0};
+		int[] nums = {2, 1, 1, 0, 1, 1, 0};
 		sortColors(nums);
 		AU.print(nums);
 	}

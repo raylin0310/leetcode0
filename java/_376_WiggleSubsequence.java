@@ -40,7 +40,11 @@ public class _376_WiggleSubsequence {
 		链接：https://leetcode-cn.com/problems/wiggle-subsequence
 		著作权归领扣网络所有。商业转载请联系官方授权，非商业转载请注明出处。
 	 */
-
+	/*
+	  动态规划题解：举个例子 [1,100,99,98,97,96，200]
+	  第一段是上升，那么序列长度就是2，后面一直下降，假设num[i]=99，下降，那么序列长度就是2+1=3，即前面上升的序列长度加1
+	  而后面的98、97，一直在下降，没有坡度差，所以最大序列长度还是2+1=3直到遇到200，开始上升
+	 */
 
 	public static int wiggleMaxLength(int[] nums) {
 		if (nums.length == 0) {
@@ -57,9 +61,38 @@ public class _376_WiggleSubsequence {
 		return Math.max(up, down);
 	}
 
+	/*
+	贪心算法题解：只考虑波峰和波谷，跳过了过渡元素
+	 */
+
+	public static int wiggleMaxLength2(int[] nums) {
+		int n = nums.length;
+		if (n < 2) {
+			return n;
+		}
+		int prevdiff = nums[1] - nums[0];
+		int ret = prevdiff != 0 ? 2 : 1;
+		for (int i = 2; i < n; i++) {
+			int diff = nums[i] - nums[i - 1];
+			/*
+			   1、当前是上升，那么前一段就要是下降，这样才能找到一个波谷
+			   2、当前是下降，那么前一段必须是上升，这样才能找到一个波峰
+			   3、不满足上面条件，则不动
+			   这里判断prevdiff包含了等于，是为了兼容num[1]和num[0]相等的情况，后面就不会出现prevdiff等于0的情况了
+
+			 */
+			if ((diff > 0 && prevdiff <= 0) || (diff < 0 && prevdiff >= 0)) {
+				ret++;
+				prevdiff = diff;
+			}
+		}
+		return ret;
+	}
+
 	public static void main(String[] args) {
-		int[] nums = {1,7,4,9,2,5};
-		int r = wiggleMaxLength(nums);
+		int[] nums = {1, 7, 4, 9, 2, 5};
+		int[] nums1 = {1, 7, 8, 9, 10};
+		int r = wiggleMaxLength(nums1);
 		System.out.println(r);
 	}
 }

@@ -43,7 +43,7 @@ public class QuickSort {
 		int pos = left;
 		for (int i = left; i <= right; ++i) {
 			if (nums[i] <= pivot) {
-				AU.swap(nums, pos++, i);
+				AU.swap(nums, i, pos++);
 			}
 		}
 		AU.swap(nums, --pos, left);
@@ -67,8 +67,8 @@ public class QuickSort {
 	}
 
 	public static void main(String[] args) {
-		int[] nums = {1, 2, 3, 4, 5};
-		System.out.println(partition2(nums, 0, nums.length));
+		int[] nums = {1, 9, 3, 9, 5,6,7,8,9};
+		System.out.println(partition(nums, 0, nums.length-1));
 		AU.print(nums);
 	}
 }

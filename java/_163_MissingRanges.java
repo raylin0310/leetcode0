@@ -34,7 +34,7 @@ public class _163_MissingRanges {
 					res.add(alower + "->" + (num - 1));
 				}
 				alower = (long) num + 1;
-			}else if (alower > num){
+			} else if (alower > num) {
 				// 还没到起点
 				continue;
 			}
@@ -46,8 +46,6 @@ public class _163_MissingRanges {
 		}
 		return res;
 	}
-
-
 
 
 	public static List<String> findMissingRanges2(int[] nums, int lower, int upper) {

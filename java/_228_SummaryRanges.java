@@ -53,8 +53,29 @@ public class _228_SummaryRanges {
 		return res;
 	}
 
+	public static List<String> summaryRanges2(int[] nums) {
+		List<String> res = new ArrayList<>();
+		if (nums == null || nums.length == 0) {
+			return res;
+		}
+		int n = nums.length;
+		for (int i = 0; i < n; i++) {
+			int si = i;
+			int num = nums[i];
+			while (i < n - 1 && (nums[i] + 1) == nums[i + 1]) {
+				i++;
+			}
+			if (i != si) {
+				res.add(num + "->" + nums[i]);
+			} else {
+				res.add(num + "");
+			}
+		}
+		return res;
+	}
+
 	public static void main(String[] args) {
-		int[] nums = {0,2,3,4,6,8,9};
+		int[] nums = {0, 2, 3, 4, 6, 8, 9};
 		AU.print(summaryRanges(nums));
 	}
 }

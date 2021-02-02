@@ -27,9 +27,24 @@ public class _283_MoveZeroes {
 	链接：https://leetcode-cn.com/problems/move-zeroes
 	著作权归领扣网络所有。商业转载请联系官方授权，非商业转载请注明出处。
 	 */
-
+	/*
+	 題解：经典双指针，跟027题一样
+	 */
 
 	public static void moveZeroes(int[] nums) {
+		if (nums == null || nums.length == 0) {
+			return;
+		}
+		int j = 0;
+		for (int i = 0; i < nums.length; i++) {
+			if (nums[i] != 0) {
+				AU.swap(nums, i, j++);
+			}
+		}
+	}
+
+
+	public static void moveZeroes2(int[] nums) {
 		if (nums == null || nums.length == 0) {
 			return;
 		}
@@ -44,22 +59,10 @@ public class _283_MoveZeroes {
 		}
 	}
 
-	public static void moveZeroes2(int[] nums) {
-		if (nums == null || nums.length == 0) {
-			return;
-		}
-		//即将被交换的0的位置
-		int j = 0;
-		for (int i = 0; i < nums.length; i++) {
-			if (nums[i] != 0) {
-				AU.swap(nums, i, j++);
-			}
-		}
-	}
 
 	public static void main(String[] args) {
 		int[] nums = {0, 1, 0, 3, 12};
-		moveZeroes2(nums);
+		moveZeroes(nums);
 		AU.print(nums);
 	}
 }
