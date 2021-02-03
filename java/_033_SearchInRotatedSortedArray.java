@@ -36,17 +36,20 @@ public class _033_SearchInRotatedSortedArray {
 	著作权归领扣网络所有。商业转载请联系官方授权，非商业转载请注明出处。
 	 */
 
+	/*
+	 此题目标找到具体的一个值等于target，那么用左闭右闭更容易理解
+	 */
 
 	public static int search(int[] nums, int target) {
 		int l = 0;
 		int r = nums.length - 1;
 		while (l <= r) {
-			int mid = (r - l) / 2 + l;
+			int mid = l + (r - l) / 2;
 			if (nums[mid] == target) {
 				return mid;
 			}
-			if (nums[l] <= nums[mid]) {
-				//左侧是有序
+			if (nums[mid] >= nums[l] ) {
+				// 左侧有序
 				if (target >= nums[l] && target < nums[mid]) {
 					r = mid - 1;
 				} else {
@@ -54,8 +57,8 @@ public class _033_SearchInRotatedSortedArray {
 				}
 			}
 			if (nums[mid] <= nums[r]) {
-				//右侧是有序的
-				if (target > nums[mid] && target <= nums[l]) {
+				// 右侧有序
+				if (target > nums[mid] && target <= nums[r]) {
 					l = mid + 1;
 				} else {
 					r = mid - 1;
@@ -66,8 +69,7 @@ public class _033_SearchInRotatedSortedArray {
 	}
 
 	public static void main(String[] args) {
-		int[] nums = {4, 5, 6, 7, 0, 1, 2};
-		System.out.println(search(nums, 0));
-		//System.out.println(search(nums, 3));
+		int[] nums = {14, 15, 16, 0, 1, 2, 3};
+		System.out.println(search(nums, 14));
 	}
 }

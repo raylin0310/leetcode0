@@ -39,6 +39,7 @@ public class _153_FindMinimumInRotatedSortedArray {
 		int r = nums.length - 1;
 		while (l < r) {
 			int mid = (r - l) / 2 + l;
+			// 和右侧比很重要
 			if (nums[mid] < nums[r]) {
 				// mid可能是最小值
 				r = mid;

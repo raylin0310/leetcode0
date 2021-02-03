@@ -54,9 +54,27 @@ public class _035_SearchInsertPosition {
 		return l;
 	}
 
+	public static int searchInsert2(int[] nums, int target) {
+		int l = 0;
+		int r = nums.length;
+		while (l < r) {
+			int mid = (r - l) / 2 + l;
+			if (target == nums[mid]) {
+				return mid;
+			} else if (target < nums[mid]) {
+				r = mid;
+			} else {
+				l = mid + 1;
+			}
+		}
+		// 这里返回l、r都是一样的，因为跳出循环的条件是l==r
+		return l;
+	}
+
 	public static void main(String[] args) {
 		int[] nums = {1, 3, 5, 6};
 		int[] nums2 = {5, 7, 9, 10};
 		System.out.println(searchInsert(nums2, 2));
+		System.out.println(searchInsert2(nums2, 20));
 	}
 }

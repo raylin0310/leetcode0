@@ -31,6 +31,9 @@ public class _034_FindFirstAndLastPositionOfElementInSortedArray {
 	链接：https://leetcode-cn.com/problems/find-first-and-last-position-of-element-in-sorted-array
 	著作权归领扣网络所有。商业转载请联系官方授权，非商业转载请注明出处。
 
+	二分搜索 左闭右开 建议看这篇文章https://www.zhihu.com/question/36132386
+	对求边界的二分查找，用左闭右开更好，因为跳出循环的时候，left==right，不用再考虑用left还是right
+	如果求具体的某个值，用左闭右闭更好
 
 	https://leetcode-cn.com/problems/find-first-and-last-position-of-element-in-sorted-array/solution/da-jia-bu-yao-kan-labuladong-de-jie-fa-fei-chang-2/
 	 */
@@ -48,82 +51,57 @@ public class _034_FindFirstAndLastPositionOfElementInSortedArray {
 	}
 
 	public static int findFirst(int[] nums, int target) {
-		int left = 0;
-		int right = nums.length - 1;
+		int l = 0;
+		int r = nums.length;
 
-		while (left <= right) {
-			int mid = left + (right - left) / 2;
+		while (l < r) {
+			int mid = l + (r - l) / 2;
 
 			if (nums[mid] == target) {
-				// ① 不可以直接返回，应该继续向左边找，即 [left, mid - 1] 区间里找
-				right = mid - 1;
+				r = mid;
 			} else if (nums[mid] < target) {
-				// 应该继续向右边找，即 [mid + 1, right] 区间里找
-				left = mid + 1;
-			} else {
-				// 此时 nums[mid] > target，应该继续向左边找，即 [left, mid - 1] 区间里找
-				right = mid - 1;
+				l = mid + 1;
+			} else if (nums[mid] > target) {
+				r = mid;
 			}
 		}
-
-		// 此时 left 和 right 的位置关系是 [right, left]，注意上面的 ①，此时 left 才是第 1 次元素出现的位置
-		// 因此还需要特别做一次判断
-		if (left != nums.length && nums[left] == target) {
-			return left;
+		// target 比所有数都大
+		if (l == nums.length) {
+			return -1;
 		}
-		return right;
+		return nums[l] == target ? l : -1;
 	}
 
-	/*
-	 左闭右开
-	 */
-
-	public static int findFirst2(int[] nums, int target) {
+	public static int findLast(int[] nums, int target) {
 		int left = 0;
 		int right = nums.length;
 
 		while (left < right) {
 			int mid = left + (right - left) / 2;
+
 			if (nums[mid] == target) {
-				right = mid;
+				left = mid + 1;
 			} else if (nums[mid] < target) {
 				left = mid + 1;
-			} else {
+			} else if (nums[mid] > target) {
 				right = mid;
 			}
 		}
-		if (left != nums.length && nums[left] == target) {
-			return left;
+		/*
+		跟寻找左侧边界不同的时，假如target 比所有数都大，那么left最后位置是n，
+		因为我们对 left 的更新必须是 left = mid + 1，就是说 while 循环结束时，nums[left] 一定不等于 target 了，而 nums[left-1] 可能是 target。
+		 */
+
+		if (left == 0) {
+			return -1;
 		}
-		return -1;
-	}
-
-	public static int findLast(int[] nums, int target) {
-		int left = 0;
-		int right = nums.length - 1;
-
-		while (left <= right) {
-			int mid = left + (right - left) / 2;
-
-			if (nums[mid] == target) {
-				// 只有这里不一样：不可以直接返回，应该继续向右边找，即 [mid + 1, right] 区间里找
-				left = mid + 1;
-			} else if (nums[mid] < target) {
-				// 应该继续向右边找，即 [mid + 1, right] 区间里找
-				left = mid + 1;
-			} else {
-				// 此时 nums[mid] > target，应该继续向左边找，即 [left, mid - 1] 区间里找
-				right = mid - 1;
-			}
-		}
-		// 由于 findFirstPosition 方法可以返回是否找到，这里无需单独再做判断
-		return right;
+		return nums[left - 1] == target ? (left - 1) : -1;
 	}
 
 	public static void main(String[] args) {
-		int[] nums = {4, 5, 6, 7};
 		int[] nums1 = {5, 7, 7, 8, 8, 10};
-		System.out.println(searchRange(nums1, 8));
+
+		System.out.println(findLast(nums1, 90));
 
 	}
 }

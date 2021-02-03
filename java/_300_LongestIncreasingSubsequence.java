@@ -45,7 +45,7 @@ public class _300_LongestIncreasingSubsequence {
 			return 0;
 		}
 		int[] dp = new int[nums.length];
-		int max = Integer.MIN_VALUE;
+		int res = Integer.MIN_VALUE;
 		for (int i = 0; i < nums.length; i++) {
 			dp[i] = 1;
 			for (int j = 0; j < i; j++) {
@@ -53,12 +53,15 @@ public class _300_LongestIncreasingSubsequence {
 					dp[i] = Math.max(dp[i], dp[j] + 1);
 				}
 			}
-			max = Math.max(max, dp[i]);
+			res = Math.max(res, dp[i]);
 		}
-		return max;
+		return res;
 	}
 
-	//time： O(nlogn); space：O(n)  不明白。。简单看下官解就行，思路就是贪心算法
+	/*
+	time： O(nlogn); space：O(n)  思路就是贪心算法，334题给这题提供了思路
+	 */
+
 	public static int lengthOfLIS3(int[] nums) {
 		int len = nums.length;
 		if (len <= 1) {
@@ -78,6 +81,8 @@ public class _300_LongestIncreasingSubsequence {
 			// 这里，因为当前遍历的数，有可能比有序数组 tail 数组实际有效的末尾的那个元素还大
 			// 【逻辑 1】因此 end + 1 应该落在候选区间里
 			int right = end + 1;
+			// 这里就是35题的二分搜索，找到合适的位置，替换上去，典型求边界，用左闭右开
+			// eg: [2,4,6,8,占位]  target=3 结果为left=1
 			while (left < right) {
 				int mid = left + (right - left) / 2;
 				if (tail[mid] < nums[i]) {
@@ -104,6 +109,35 @@ public class _300_LongestIncreasingSubsequence {
 		return end;
 	}
 
+	//上面一样，去掉注释自己写的
+	public static int lengthOfLIS4(int[] nums) {
+		int n = nums.length;
+		if (n <= 1) {
+			return n;
+		}
+		int[] tail = new int[n];
+		tail[0] = nums[0];
+		int end = 0;
+		for (int i = 1; i < n; i++) {
+			int l = 0;
+			int r = end + 1;
+			while (l < r) {
+				int mid = l + (r - l) / 2;
+				if (tail[mid] < nums[i]) {
+					l = mid + 1;
+				} else {
+					r = mid;
+				}
+			}
+			tail[l] = nums[i];
+			if (l == end + 1) {
+				end++;
+			}
+		}
+		return end + 1;
+	}
+
+
 	// 调试方法，以观察是否运行正确
 	private static void printArray(int num, int[] tail) {
 		System.out.print("当前数字：" + num);
@@ -121,5 +155,6 @@ public class _300_LongestIncreasingSubsequence {
 	public static void main(String[] args) {
 		int[] nums = {10, 9, 2, 5, 1, 3, 7, 101, 18};
 		System.out.println(lengthOfLIS3(nums));
+		System.out.println(lengthOfLIS4(nums));
 	}
 }

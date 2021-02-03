@@ -58,9 +58,9 @@ public class _081_SearchInRotatedSortedArrayII {
 				continue;
 			}
 			//前半部分有序
-			if (nums[start] < nums[mid]) {
+			if (nums[mid] > nums[start]) {
 				//target在前半部分
-				if (nums[mid] > target && nums[start] <= target) {
+				if (target < nums[mid] && target >= nums[start]) {
 					end = mid - 1;
 				} else {  //否则，去后半部分找
 					start = mid + 1;
@@ -68,7 +68,7 @@ public class _081_SearchInRotatedSortedArrayII {
 			} else {
 				//后半部分有序
 				//target在后半部分
-				if (nums[mid] < target && nums[end] >= target) {
+				if (target > nums[mid] && target <= nums[end]) {
 					start = mid + 1;
 				} else {  //否则，去后半部分找
 					end = mid - 1;
@@ -80,8 +80,9 @@ public class _081_SearchInRotatedSortedArrayII {
 		return false;
 
 	}
+
 	public static void main(String[] args) {
-		int[] nums = {1,0,1,1,1};
+		int[] nums = {1, 0, 1, 1, 1};
 		System.out.println(search(nums, 0));
 	}
 }
