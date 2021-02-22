@@ -46,8 +46,28 @@ public class _024_SwapNodesInPairs {
 		}
 		return dummy.next;
 	}
+	/*
+	 同上，复习时自己写的
+	 */
+
+	public static ListNode swapPairs2(ListNode head) {
+		ListNode dummy = new ListNode(0);
+		dummy.next = head;
+		ListNode current = dummy;
+		while (current.next != null && current.next.next != null) {
+			ListNode n = current.next;
+			ListNode nn = n.next;
+			ListNode nnn = nn.next;
+			n.next = nnn;
+			nn.next = n;
+			current.next = nn;
+			current = n;
+		}
+		return dummy.next;
+	}
 
 	public static void main(String[] args) {
-		System.out.println(swapPairs(ListNode.build("[1,2,3,4]")));
+		System.out.println(swapPairs(ListNode.build("[1,2,3,4,5]")));
+		System.out.println(swapPairs2(ListNode.build("[1,2,3,4,5]")));
 	}
 }

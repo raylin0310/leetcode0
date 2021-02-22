@@ -66,26 +66,6 @@ public class _141_LinkedListCycle {
 		}
 		return false;
 	}
-	/*
-	 环形链表，快慢指针
-	 */
-
-	public static boolean hasCycle2(ListNode head) {
-		if (head == null || head.next == null) {
-			return false;
-		}
-		ListNode slow = head;
-		ListNode fast = head.next;
-		while (slow != fast) {
-			if (fast == null || fast.next == null) {
-				return false;
-			}
-			slow = slow.next;
-			fast = fast.next.next;
-		}
-		return true;
-	}
-	// 同上，这个是先移动，再判断
 
 	public static boolean hasCycle3(ListNode head) {
 		ListNode slow = head;

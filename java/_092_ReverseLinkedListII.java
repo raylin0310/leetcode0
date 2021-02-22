@@ -53,10 +53,11 @@ public class _092_ReverseLinkedListII {
 		 */
 		for (int i = 0; i < n - m; i++) {
 			// temp被提出来放到pre和pre.next之间
-			ListNode temp = cur.next;
-			cur.next = temp.next;
-			temp.next = pre.next;
-			pre.next = temp;
+			ListNode nx = cur.next;
+			ListNode nnx = nx.next;
+			cur.next = nnx;
+			nx.next = pre.next;
+			pre.next = nx;
 		}
 		return dummy.next;
 	}
