@@ -36,6 +36,10 @@ public class _061_RotateList {
 	著作权归领扣网络所有。商业转载请联系官方授权，非商业转载请注明出处。
 	 */
 
+	/*
+	 找到要断开的位置断开，把右边的接到左边的前面即可
+	 */
+
 	public static ListNode rotateRight(ListNode head, int k) {
 		if (head == null || head.next == null) {
 			return head;

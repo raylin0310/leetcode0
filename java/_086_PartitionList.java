@@ -29,6 +29,11 @@ public class _086_PartitionList {
 		参考官解
 		https://leetcode-cn.com/problems/partition-list/solution/fen-ge-lian-biao-by-leetcode/
 		分成两个head（small、big），small放所有比x的node，big放所有比X大的node，最后把big接在small的最后面
+
+		time:O(n)
+		space:O(1)
+		能这么做的原因是链表都是引用，而数组是具体的值(这里是new的一个节点，结果不算入空间复杂度)
+		所以空间复杂为O(1)，如果是数组这样做的话，空间复杂度就为O(n)，数组解决这倒题，参考快排的partion方法
 	 */
 
 	public static ListNode partition(ListNode head, int x) {
@@ -52,6 +57,6 @@ public class _086_PartitionList {
 	}
 
 	public static void main(String[] args) {
-		System.out.println(partition(ListNode.build("[1,4,3,2,5,2]"), 3));
+		System.out.println(partition(ListNode.build("[1,11,3,2,5,2]"), 10));
 	}
 }

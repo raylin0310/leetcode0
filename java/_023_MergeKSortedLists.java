@@ -5,6 +5,8 @@
  * @copyright Copyright 2018 Thunisoft, Inc. All rights reserved.
  */
 
+import java.util.PriorityQueue;
+
 /**
  * 合并K个升序链表
  * @author lilin
@@ -52,6 +54,11 @@ public class _023_MergeKSortedLists {
 	著作权归领扣网络所有。商业转载请联系官方授权，非商业转载请注明出处。
 	 */
 
+	/*
+	 time:O(kn*logk)
+	 space:O(logk)，k为数组的个数，主要是递归消耗的栈空间，总共k个，递归logK次
+	 */
+
 	public static ListNode mergeKLists(ListNode[] lists) {
 		if (lists == null || lists.length == 0) {
 			return null;
@@ -83,6 +90,31 @@ public class _023_MergeKSortedLists {
 			tail = tail.next;
 		}
 		tail.next = (a != null ? a : b);
+		return dummy.next;
+	}
+
+	/*
+	 使用优先队列的方法,
+	 time:O(kn*logk)
+	 space:O(k)
+	 */
+
+	public ListNode mergeKLists2(ListNode[] lists) {
+		PriorityQueue<ListNode> q = new PriorityQueue<>((x, y)->x.val-y.val);
+		for(ListNode node : lists){
+			if(node!=null){
+				q.add(node);
+			}
+		}
+		ListNode dummy = new ListNode(0);
+		ListNode tail = dummy;
+		while(!q.isEmpty()){
+			tail.next = q.poll();
+			tail = tail.next;
+			if (tail.next != null){
+				q.add(tail.next);
+			}
+		}
 		return dummy.next;
 	}
 
