@@ -45,6 +45,22 @@ public class _058_LengthOfLastWord {
 
 	}
 
+	public static int lengthOfLastWord2(String s) {
+		int end = s.length() - 1;
+		while(end >= 0 && s.charAt(end) == ' ') {
+			end--;
+		}
+		if(end < 0) {
+			return 0;
+		}
+		int res = 0;
+		while(end >= 0 && s.charAt(end) != ' ') {
+			end--;
+			res++;
+		}
+		return res;
+	}
+
 	public static void main(String[] args) {
 		System.out.println(lengthOfLastWord("hello world  "));
 	}

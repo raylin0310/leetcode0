@@ -76,7 +76,8 @@ public class _013_RomanToInteger {
 		int res = toNumber(s.charAt(0));
 		for (int i = 1; i < s.length(); i++) {
 			if (toNumber(s.charAt(i)) > toNumber(s.charAt(i - 1))) {
-				//eq: (sum-pre)+(cur-pre)
+				// 比如IV，当i等于1的时候，这时候，当前位置的值应该是5-1=4，。但是当i等于0的时候，是算的加，即多加了个1，所以这里是5-2*1
+				// 即 (sum-pre) + (cur -pre) = sum+cur-2*pre
 				res += toNumber(s.charAt(i)) - 2 * toNumber(s.charAt(i - 1));
 			} else {
 				res += toNumber(s.charAt(i));

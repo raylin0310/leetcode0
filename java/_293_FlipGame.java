@@ -47,7 +47,7 @@ public class _293_FlipGame {
 	}
 
 	public static void main(String[] args) {
-		String s = "++++";
+		String s = "+++++";
 		AU.print(generatePossibleNextMoves(s));
 	}
 }

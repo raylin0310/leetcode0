@@ -6,6 +6,7 @@
  */
 
 import java.util.ArrayList;
+import java.util.Deque;
 import java.util.List;
 
 /**
@@ -47,6 +48,12 @@ public class _131_PalindromePartitioning {
 		helper(res, new ArrayList<>(), s);
 		return res;
 	}
+
+	/*
+	 这里可以优化，传一个int start，然后isPalindrome改为（string s,int left,int right），这样子每次就不用截取字符串了
+	 if (isPalindrome(s.substring(0, i + 1))) -> if (isPalindrome(s,start,i)) {
+	 */
+
 	public static void helper(List<List<String>> res, List<String> list, String s) {
 		if (s.length() == 0) {
 			res.add(new ArrayList<>(list));
@@ -75,6 +82,7 @@ public class _131_PalindromePartitioning {
 	}
 
 	public static void main(String[] args) {
-		AU.print(partition("baaaac"));
+		AU.print(partition("a"));
+		System.out.println("a".substring(1)); // ""
 	}
 }

@@ -96,8 +96,8 @@ public class _015_3Sum {
 			res.add(new ArrayList<>(path));
 			return;
 		}
-		for (int i = start; i < nums.length && path.size() < 3 ; i++) {
-			if (target < 0){
+		for (int i = start; i < nums.length && path.size() < 3; i++) {
+			if (target < 0) {
 				break;
 			}
 			if (i != start && nums[i] == nums[i - 1]) {

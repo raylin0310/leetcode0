@@ -38,7 +38,7 @@ public class _239_SlidingWindowMaximum {
 	 1  3  -1  -3 [5  3  6] 7       6
 	 1  3  -1  -3  5 [3  6  7]      7
 
-	提示：
+	提示：o
 	
 	1 <= nums.length <= 10^5
 	-10^4<= nums[i]<= 10^4

@@ -36,6 +36,10 @@ public class _104_MaximumDepthOfBinaryTree {
 	著作权归领扣网络所有。商业转载请联系官方授权，非商业转载请注明出处。
 	 */
 
+	/*
+	自顶向下
+	 */
+
 	public static int maxDepth(TreeNode root) {
 		if (root == null) {
 			return 0;
@@ -52,6 +56,11 @@ public class _104_MaximumDepthOfBinaryTree {
 		}
 		return Math.max(dfs(root.left, level + 1), dfs(root.right, level + 1));
 	}
+
+
+	/*
+	自底向上
+	 */
 
 	public static int dfs2(TreeNode root) {
 		if (root == null) {

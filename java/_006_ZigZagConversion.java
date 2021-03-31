@@ -47,27 +47,9 @@ public class _006_ZigZagConversion {
 	著作权归领扣网络所有。商业转载请联系官方授权，非商业转载请注明出处。
 	 */
 
-	public static String convert(String s, int numRows) {
-		if (numRows <= 1) {
-			return s;
-		}
-		StringBuilder[] sb = new StringBuilder[numRows];
-		for (int i = 0; i < sb.length; i++) {
-			sb[i] = new StringBuilder("");
-		}
-		for (int i = 0; i < s.length(); i++) {
-			int index = i % (2 * numRows - 2);
-			index = index < numRows ? index : 2 * numRows - 2 - index;
-			sb[index].append(s.charAt(i));
-		}
-		for (int i = 1; i < sb.length; i++) {
-			sb[0].append(sb[i]);
-		}
-		return sb[0].toString();
-	}
 
 	//把每一个字符放在对应行的StringBuilder里面，最后拼接
-	public static String convert2(String s, int numRows) {
+	public static String convert(String s, int numRows) {
 
 		if (numRows == 1) {
 			return s;
@@ -98,6 +80,6 @@ public class _006_ZigZagConversion {
 
 
 	public static void main(String[] args) {
-		System.out.println(convert2("LEETCODEISHIRING", 3));
+		System.out.println(convert("LEETCODEISHIRING", 3));
 	}
 }

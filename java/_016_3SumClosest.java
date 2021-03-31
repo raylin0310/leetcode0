@@ -53,6 +53,7 @@ public class _016_3SumClosest {
 				} else {
 					start++;
 				}
+				//如果相等了，那么差的绝对值为0，，可以直接返回
 				if (Math.abs(sum - target) < Math.abs(res - target)) {
 					res = sum;
 				}

@@ -59,6 +59,7 @@ public class _067_AddBinary {
 		return sb.reverse().toString();
 	}
 
+
 	public static void main(String[] args) {
 
 	}

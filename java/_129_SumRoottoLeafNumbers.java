@@ -58,6 +58,26 @@ public class _129_SumRoottoLeafNumbers {
 		return dfs(root, 0);
 	}
 
+	public static int sumNumbers3(TreeNode root) {
+		return dfs3(root, 0);
+	}
+
+	public static int dfs3(TreeNode root, int preSum) {
+		if (root.left == null && root.right == null) {
+			//叶子节点
+			return preSum * 10 + root.val;
+		}
+		int l = 0;
+		int r = 0;
+		if (root.left != null) {
+			l = dfs3(root.left, preSum * 10 + root.val);
+		}
+		if (root.right != null) {
+			r = dfs3(root.right, preSum * 10 + root.val);
+		}
+		return l + r;
+	}
+
 	public static int dfs(TreeNode root, int prevSum) {
 		if (root == null) {
 			return 0;
@@ -103,5 +123,6 @@ public class _129_SumRoottoLeafNumbers {
 
 	public static void main(String[] args) {
 		System.out.println(sumNumbers(TreeNode.stringToTreeNode("[4,9,0,5,1]")));
+		System.out.println(sumNumbers3(TreeNode.stringToTreeNode("[4,9,0,5,1]")));
 	}
 }
