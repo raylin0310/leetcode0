@@ -36,44 +36,50 @@ public class _143_ReorderList {
 	 参考官解
 	 */
 
-	public static void reorderList(ListNode head) {
-		if (head == null || head.next == null) {
-			return;
-		}
-		ListNode mid = findMid(head);
-		mid.next = reverse(mid.next);
-		ListNode cur = head;
-		// 原地交换
-		while (mid.next != null) {
-			// 把mid.next摘出来
-			ListNode swapped = mid.next;
-			mid.next = mid.next.next;
-			//放到cur.next上
-			swapped.next = cur.next;
-			cur.next = swapped;
-			// cur换
-			cur = cur.next.next;
-		}
-	}
-	/*
-		 1,2,3,4  ->  1,2,4,3 mid=3
-		 1,4,2,3  mid=3
-	*/
-	/*
-	     1,2,3,4,5 -> 1,2,3,5,4 mid=3
-	     1,5,2,3,4 mid=3
-	     1,5,2,4,3 mid=3
-	 */
 
 	public static void main(String[] args) {
+		//1、4、2、3
 		ListNode head = ListNode.build("[1,2,3,4]");
 		reorderList(head);
 		System.out.println(head);
-		ListNode l1 = ListNode.build("[1,2,3]");
-		ListNode l2 = ListNode.build("[4,5,6]");
-		mergeList(l1, l2);
-		System.out.println(l1);
 	}
+
+	/*
+	 time:O(n)
+	 space:O(1)
+	 */
+
+	public static void reorderList(ListNode head) {
+		if (head == null) {
+			return;
+		}
+		// 偏左
+		ListNode mid = middleNode(head);
+		ListNode l1 = head;
+		ListNode l2 = mid.next;
+		//断开
+		mid.next = null;
+		l2 = reverse(l2);
+		mergeList(l1, l2);
+		System.out.println("l1+"+l1.toString());
+	}
+
+	/*
+	中节点偏左
+	偏右：fast != null && fast.next != null
+	 */
+
+	public static ListNode middleNode(ListNode head) {
+		ListNode slow = head;
+		ListNode fast = head;
+		while (fast.next != null && fast.next.next != null) {
+			slow = slow.next;
+			fast = fast.next.next;
+		}
+		return slow;
+	}
+
+	//这里如果要返回合并后的链表，参考148题
 
 	public static void mergeList(ListNode l1, ListNode l2) {
 		ListNode l1Next;
@@ -90,18 +96,6 @@ public class _143_ReorderList {
 		}
 	}
 
-	// 找中节点，如果是偶数个，中节点是偏右
-
-	public static ListNode findMid(ListNode head) {
-		ListNode slow = head;
-		ListNode fast = head;
-		while (fast != null && fast.next != null) {
-			slow = slow.next;
-			fast = fast.next.next;
-		}
-		return slow;
-	}
-
 	public static ListNode reverse(ListNode head) {
 		ListNode pre = null;
 		while (head != null) {
@@ -112,6 +106,5 @@ public class _143_ReorderList {
 		}
 		return pre;
 	}
-
 
 }

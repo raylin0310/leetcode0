@@ -32,6 +32,11 @@ public class _019_RemoveNthNodeFromEndOfList {
 	著作权归领扣网络所有。商业转载请联系官方授权，非商业转载请注明出处。
 	 */
 
+	/*
+	 time:O(l)
+	 space:O(1)
+	 */
+
 	public static ListNode removeNthFromEnd(ListNode head, int n) {
 		if (n == 0  || head == null) {
 			return head;

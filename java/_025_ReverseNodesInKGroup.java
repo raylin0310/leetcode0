@@ -51,14 +51,7 @@ public class _025_ReverseNodesInKGroup {
 		if (count == k) {
 			//剩下节点继续，返回的是剩下节点排序好的head
 			nextHead = reverseKGroup(nextHead, k);
-			//      1,2,3   cur:4,5
-			/*
-				步骤：cur         head
-					4,5          1,2,3
-					1,4,5          2,3
-				    2,1,4,5          3
-				    3,2,1,4,5
-			 */
+
 			while (count != 0) {
 				ListNode temp = head.next;
 				head.next = nextHead;
@@ -107,6 +100,7 @@ public class _025_ReverseNodesInKGroup {
 
 		return dummy.next;
 	}
+
 	// 这里其实可以断开，再来反转会好理解点，看234题的reverse
 	public static ListNode[] myReverse(ListNode head, ListNode tail) {
 		ListNode prev = tail.next;

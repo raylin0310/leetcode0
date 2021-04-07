@@ -34,6 +34,11 @@ public class _328_OddEvenLinkedList {
 	著作权归领扣网络所有。商业转载请联系官方授权，非商业转载请注明出处。
 		 */
 
+	/*
+	time:O(n)
+	space:O(1)
+	 */
+
 	public static ListNode oddEvenList(ListNode head) {
 		if (head == null || head.next == null) {
 			return head;
@@ -62,6 +67,23 @@ public class _328_OddEvenLinkedList {
 		}
 		odd.next = evenHead;
 		return head;
+	}
+
+	public static ListNode oddEvenList3(ListNode head) {
+		if (head == null || head.next == null) {
+			return head;
+		}
+		ListNode odd = head;
+		ListNode even = head.next;
+		ListNode evenHead = even;
+		while (even != null && even.next != null) {
+			odd.next = odd.next.next;
+			even.next = even.next.next;
+			odd = odd.next;
+			even = even.next;
+		}
+		odd.next = evenHead;
+		return odd;
 	}
 
 	public static ListNode oddEvenList2(ListNode head) {

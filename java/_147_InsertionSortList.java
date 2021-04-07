@@ -61,8 +61,36 @@ public class _147_InsertionSortList {
 		return dummy.next;
 	}
 
+
+	public static ListNode insertionSortList2(ListNode head) {
+		if (head == null || head.next == null) {
+			return head;
+		}
+		ListNode dummy = new ListNode(0);
+		dummy.next = head;
+		ListNode cur = head;
+		while (cur != null && cur.next != null) {
+			if (cur.val <= cur.next.val) {
+				cur = cur.next;
+			} else {
+				ListNode n = cur.next;
+				ListNode nn = n.next;
+				cur.next = nn;
+				ListNode pre = dummy;
+				//0,2,5  3，要找到节点2，然后把3放到节点2后面
+				while (pre.next.val<=n.val){
+					pre = pre.next;
+				}
+				n.next = pre.next;
+				pre.next = n;
+			}
+		}
+		return dummy.next;
+	}
+
 	public static void main(String[] args) {
 		System.out.println(insertionSortList(ListNode.build("[10,8,5,7]")));
+		System.out.println(insertionSortList2(ListNode.build("[10,8,5,7]")));
 	}
 
 }
