@@ -57,6 +57,24 @@ public class _070_ClimbingStairs {
 		return dp[n];
 	}
 
+	/*
+	内化优化版
+	 */
+
+	public static int climbStairs3(int n) {
+		if (n <= 2) {
+			return n;
+		}
+		int pp = 1;
+		int p = 2;
+		for (int i = 3; i <= n; i++) {
+			int res = p+pp;
+			pp = p;
+			p = res;
+		}
+		return p;
+	}
+
 	//space : O(n1)
 	public static int climbStairs2(int n) {
 		if (n <= 2) {
@@ -72,6 +90,7 @@ public class _070_ClimbingStairs {
 	}
 
 	public static void main(String[] args) {
-		System.out.println(climbStairs(4));
+		System.out.println(climbStairs(26));
+		System.out.println(climbStairs3(26));
 	}
 }

@@ -10,12 +10,15 @@ import java.util.Comparator;
 
 /**
  * _179_LargestNumber
+ * 搜索关键词 ：输入一个正整数数组，把数组里所有数字拼接起来排成一个数，打印能拼接出的所有数字中最小的一个
+ * 拼成/排成 一个数 最小
  * @author lilin
  * @date 2020-9-21 10:15
  */
 public class _179_LargestNumber {
 	/*
 	给定一组非负整数，重新排列它们的顺序使之组成一个最大的整数。
+
 
 	示例 1:
 	

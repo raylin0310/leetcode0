@@ -85,6 +85,16 @@ public class _232_ImplementQueueUsingStacks {
 			return s2.pop();
 		}
 
+		/** Removes the element from in front of queue and returns that element. */
+		public int pop2() {
+			if (s2.isEmpty()){
+				while (!s1.isEmpty()){
+					s1.push(s2.pop());
+				}
+			}
+			return s2.pop();
+		}
+
 		/** Get the front element. */
 		public int peek() {
 			if (s2.isEmpty()) {

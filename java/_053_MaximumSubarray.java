@@ -7,6 +7,7 @@
 
 /**
  * _53_MaximumSubarray
+ * 连续 子数组 和最大
  * @author lilin
  * @date 2020-8-24 15:16
  */
@@ -46,11 +47,27 @@ public class _053_MaximumSubarray {
 		return res;
 	}
 
+	// time : O(n) space : O(n);
+	public static int maxSubArray3(int[] nums) {
+		int[] dp = new int[nums.length];
+		int res = nums[0];
+		dp[0] = nums[0];
+		for (int i = 1; i < nums.length; i++) {
+			dp[i] = nums[i]+ Math.max(0,dp[i-1]);
+			res = Math.max(res,dp[i])
+;		}
+			return res;
+	}
+
 	// time : O(n) space : O(1);
 	public static int maxSubArray2(int[] nums) {
+		if (nums == null || nums.length == 0) {
+			return -1;
+		}
 		int res = nums[0];
 		int sum = nums[0];
 		for (int i = 1; i < nums.length; i++) {
+			//sum = nums[i] + Math.max(sum, 0);
 			sum = Math.max(nums[i], sum + nums[i]);
 			res = Math.max(res, sum);
 		}

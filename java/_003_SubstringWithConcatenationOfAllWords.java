@@ -7,6 +7,7 @@
 
 import java.util.HashMap;
 import java.util.HashSet;
+import java.util.Map;
 
 /**
  * 无重复字符的最长子串
@@ -81,7 +82,7 @@ public class _003_SubstringWithConcatenationOfAllWords {
 		int left = 0;
 		for (int i = 0; i < s.length(); i++) {
 			if (map.containsKey(s.charAt(i))) {
-				// 为什么取max，比如如下字符串abcdef  ca 当遇到第二个c时，j=2，当遇到第二个a时，我们就不能取j=0
+				// 为什么取max，考虑这种情况 abcdefgc，当i=c时，此时left还是0，但是我们得从第一个c开始下标+1
 				left = Math.max(left, map.get(s.charAt(i)) + 1);
 			}
 			map.put(s.charAt(i), i);

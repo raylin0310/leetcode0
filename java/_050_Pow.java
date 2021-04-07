@@ -5,6 +5,8 @@
  * @copyright Copyright 2018 Thunisoft, Inc. All rights reserved.
  */
 
+import java.util.concurrent.TimeUnit;
+
 /**
  * _050_Pow
  * @author lilin
@@ -49,7 +51,7 @@ public class _050_Pow {
 		if (n > 0) {
 			return pow(x, n);
 		} else {
-			return 1.0 / pow(x, n);
+			return 1.0 / pow(x, Math.abs(n));
 		}
 	}
 
@@ -98,24 +100,27 @@ public class _050_Pow {
 		简称快速幂
 	 */
 
-	public static double myPow3(double x, int n) {
+	public static double myPow3(double x, long n) throws InterruptedException {
 		if (n == 0) {
 			return 1;
 		}
 
-		int p = 1;
+		// 这里用long的原因是，p*2可能超出integer.max，导致变为负数
+		long p = 1;
 		double res = x;
 		while (p * 2 <= n) {
 			res *= res;
 			p = p * 2;
+
 		}
 		return res * myPow3(x, n - p);
 	}
 
 
-	public static void main(String[] args) {
-		System.out.println(myPow1(2, 4));
-		System.out.println(myPow2(2, 4));
-		System.out.println(myPow3(2, 4));
+	public static void main(String[] args) throws InterruptedException {
+//		System.out.println(myPow1(2, 4));
+//		System.out.println(myPow2(2, 4));
+//		System.out.println(myPow3(2, 4));
+		System.out.println(myPow3(0.00001, 2147483647));
 	}
 }

@@ -36,10 +36,10 @@ public class _066_PlusOne {
 
 	public static int[] plusOne(int[] digits) {
 		for (int i = digits.length - 1; i >= 0; i--) {
-			if (digits[i] < 9){
+			if (digits[i] < 9) {
 				digits[i]++;
 				return digits;
-			}else {
+			} else {
 				digits[i] = 0;
 				//继续算上一位
 			}
@@ -50,6 +50,16 @@ public class _066_PlusOne {
 	}
 
 	public static void main(String[] args) {
+		int x = 23;
+		int y = 19;
 
+		for (int i = 0; i < (823 / x) + 1; i++) {
+			for (int j = 0; j < ((823 - i * x) / y) + 1; j++) {
+				if ((i < j) && (i * x + j * y == 823)) {
+					System.out.println(i);
+					System.exit(0);
+				}
+			}
+		}
 	}
 }

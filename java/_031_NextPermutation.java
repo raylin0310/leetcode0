@@ -48,6 +48,8 @@ public class _031_NextPermutation {
 	/*
 	参考官方题解，说的很明白
 	https://leetcode-cn.com/problems/next-permutation/solution/xia-yi-ge-pai-lie-by-leetcode-solution/
+
+	[4,5,2,6,3,1]  i=num(2) j=num[3] swap->[4,5,3,6,2,1]->reverse->[4,5,3,1,2,6]
 	 */
 
 	public static void nextPermutation(int[] nums) {
@@ -58,7 +60,7 @@ public class _031_NextPermutation {
 		if (i >= 0) {
 			int j = nums.length - 1;
 			//从右往左，找到第一个比nums[i]大的数
-			while (j > i && nums[i] >= nums[j]) {
+			while (j > i &&  nums[j] <= nums[i]) {
 				j--;
 			}
 			swap(nums, i, j);
