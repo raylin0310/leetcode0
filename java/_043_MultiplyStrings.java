@@ -63,6 +63,6 @@ public class _043_MultiplyStrings {
 	}
 
 	public static void main(String[] args) {
-		System.out.println(multiply("1234","567"));
+		System.out.println(multiply("7","8"));
 	}
 }

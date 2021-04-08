@@ -38,9 +38,33 @@ public class _198_HouseRobber {
         space : O(1)
         这个题解讲的不错
         https://leetcode-cn.com/problems/house-robber/solution/da-jia-jie-she-by-leetcode-solution/
+
+        dp[i] 表示前 i 间房屋能偷窃到的最高总金额
 	 */
 
+
 	public static int rob(int[] nums) {
+		if (nums == null || nums.length == 0) {
+			return 0;
+		}
+		int length = nums.length;
+		if (length == 1) {
+			return nums[0];
+		}
+		int[] dp = new int[length];
+		dp[0] = nums[0];
+		dp[1] = Math.max(nums[0], nums[1]);
+		for (int i = 2; i < length; i++) {
+			dp[i] = Math.max(dp[i - 2] + nums[i], dp[i - 1]);
+		}
+		return dp[length - 1];
+	}
+
+	/*
+	空间优化版
+	 */
+
+	public static int rob2(int[] nums) {
 		int prevNo = 0;
 		int prevYes = 0;
 		for (int num : nums) {

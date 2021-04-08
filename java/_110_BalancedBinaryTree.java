@@ -35,6 +35,7 @@ public class _110_BalancedBinaryTree {
 		if (root == null) {
 			return 0;
 		}
+		// 这里可以优化，得到leftHeight后，可以马上判断== -1，如果是，则返回-1，不用求root.right了。参考height2
 		int leftHeight = height(root.left);
 		int rightHeight = height(root.right);
 		if (leftHeight == -1 || rightHeight == -1 || Math.abs(leftHeight - rightHeight) > 1) {

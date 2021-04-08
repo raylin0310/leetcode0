@@ -4,6 +4,7 @@ import java.util.Map;
 
 /**
  * 众数
+ * 超过一半 次数
  */
 public class _169_MajorityElement {
 /*
@@ -33,10 +34,7 @@ public class _169_MajorityElement {
 		Map<Integer, Integer> map = new HashMap<>();
 		int mid = nums.length / 2;
 		for (int num : nums) {
-			Integer count = map.get(num);
-			if (count == null) {
-				count = 0;
-			}
+			Integer count = map.getOrDefault(num,0);
 			count++;
 			if (count > mid) {
 				return num;

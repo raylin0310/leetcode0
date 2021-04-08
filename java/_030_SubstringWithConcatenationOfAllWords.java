@@ -8,6 +8,7 @@
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 /**
  * 串联所有单词的子串
@@ -79,6 +80,40 @@ public class _030_SubstringWithConcatenationOfAllWords {
 				copy.put(str, copy.get(str) - 1);
 				k--;
 				j += m;
+			}
+			if (k == 0) {
+				res.add(i);
+			}
+		}
+		return res;
+	}
+
+	public static List<Integer> findSubstring2(String s, String[] words) {
+		if (s == null || words == null || words.length == 0) {
+			return new ArrayList<>();
+		}
+		HashMap<String, Integer> cnt = new HashMap<>();
+		List<Integer> res = new ArrayList<>();
+		for (String word : words) {
+			cnt.put(word, cnt.getOrDefault(word, 0) + 1);
+		}
+
+		int n = words.length;
+		// 每个单词的长度
+		int m = words[0].length();
+
+		for (int i = 0; i <= s.length() - n * m; i++) {
+			Map<String, Integer> copy = new HashMap<>(cnt);
+			int k = n;
+			int j = i;
+			while (k > 0) {
+				String w = s.substring(j, j + m);
+				if (!copy.containsKey(w) || copy.get(w) < 1) {
+					break;
+				}
+				copy.put(w, copy.get(w) - 1);
+				j += m;
+				k--;
 			}
 			if (k == 0) {
 				res.add(i);

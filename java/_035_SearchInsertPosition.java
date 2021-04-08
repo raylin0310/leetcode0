@@ -54,6 +54,10 @@ public class _035_SearchInsertPosition {
 		return l;
 	}
 
+	/*
+	 [1,4,5] t=2
+	 */
+
 	public static int searchInsert2(int[] nums, int target) {
 		int l = 0;
 		int r = nums.length;

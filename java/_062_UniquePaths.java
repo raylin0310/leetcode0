@@ -96,6 +96,6 @@ public class _062_UniquePaths {
 
 	public static void main(String[] args) {
 		System.out.println(uniquePaths(7, 3));
-		System.out.println(uniquePaths2(7, 3));
+		System.out.println(uniquePaths2(2, 2));
 	}
 }

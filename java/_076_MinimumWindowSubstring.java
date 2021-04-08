@@ -54,7 +54,7 @@ public class _076_MinimumWindowSubstring {
 		for (int i = 0; i < s.length(); i++) {
 			char c = s.charAt(i);
 			window[c]++;
-			if (needs[c] > 0 && needs[c] >= window[c]) {
+			if (needs[c] > 0 && window[c] <= needs[c]) {
 				total++;
 			}
 			while (total == t.length()) {
@@ -72,6 +72,7 @@ public class _076_MinimumWindowSubstring {
 		}
 		return (min == Integer.MAX_VALUE) ? "" : s.substring(from, from + min);
 	}
+
 	//用一个计数数组，窗口右侧指针移动时，计数数组字符数量减少，左侧指针移动时，数量增加(有点像音符跳动)
 	public static String minWindow3(String s, String t) {
 		if (s == null || s == "" || t == null || t == "" || s.length() < t.length()) {

@@ -7,6 +7,7 @@
 
 import java.util.HashMap;
 import java.util.HashSet;
+import java.util.Map;
 
 /**
  * 无重复字符的最长子串
@@ -41,7 +42,11 @@ public class _003_SubstringWithConcatenationOfAllWords {
 	思路：滑动窗口
 	 */
 
-	// 滑动窗口思路
+	/*
+	 滑动窗口思路,这种写法有点不好看,参考方法2吧
+	 非要用这种写法的话，可以把i当作right指针，当set.contains时，移动left指针，使得！set.contains，这时res=max(res,i-left+1)
+	 */
+
 	public static int lengthOfLongestSubstring(String s) {
 		if (s == null || s.length() < 1) {
 			return 0;
@@ -65,6 +70,7 @@ public class _003_SubstringWithConcatenationOfAllWords {
 		}
 		return max;
 	}
+
 	// 思路跟上面一样，如果遇到重复的，就取前面重复字符指针的下一位作为新的左指针
 	// https://leetcode-cn.com/problems/longest-substring-without-repeating-characters/solution/hua-dong-chuang-kou-by-powcai/
 	public static int lengthOfLongestSubstring2(String s) {
@@ -73,12 +79,14 @@ public class _003_SubstringWithConcatenationOfAllWords {
 		}
 		HashMap<Character, Integer> map = new HashMap<>();
 		int res = 0;
-		for (int i = 0, j = 0; i < s.length(); i++) {
+		int left = 0;
+		for (int i = 0; i < s.length(); i++) {
 			if (map.containsKey(s.charAt(i))) {
-				j = Math.max(j, map.get(s.charAt(i)) + 1);
+				// 为什么取max，考虑这种情况 abcdefgc，当i=c时，此时left还是0，但是我们得从第一个c开始下标+1
+				left = Math.max(left, map.get(s.charAt(i)) + 1);
 			}
 			map.put(s.charAt(i), i);
-			res = Math.max(res, i - j + 1);
+			res = Math.max(res, i - left + 1);
 		}
 		return res;
 	}

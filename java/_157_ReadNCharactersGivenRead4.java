@@ -24,6 +24,7 @@ public class _157_ReadNCharactersGivenRead4 {
 		int index = 0;
 		while (true) {
 			int count = read4(temp);
+			//n-index表示还剩余多少个需要读取
 			count = Math.min(count, n - index);
 			for (int i = 0; i < count; i++) {
 				buf[index++] = temp[i];

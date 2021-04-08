@@ -31,6 +31,7 @@ public class _158_ReadNCharactersGivenRead4IICallMultipleTimes {
 	public int read(char[] buf, int n) {
 		int index = 0;
 		while (index < n) {
+			// 说明上一次是读取的完整4个字符，这一次重新读取
 			if (pointer == 0) {
 				count = read4(temp);
 			}
@@ -53,7 +54,7 @@ public class _158_ReadNCharactersGivenRead4IICallMultipleTimes {
 		char[] ret = new char[4];
 		int index = 0;
 		for (int i = 0; i < res.length; i++) {
-			if (index < 4){
+			if (index < 4) {
 				ret[index++] = temp[i];
 			}
 		}

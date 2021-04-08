@@ -77,6 +77,18 @@ public class _124_BinaryTreeMaximumPathSum {
 		return node.val + Math.max(leftGain, rightGain);
 	}
 
+
+	public int maxGain2(TreeNode node) {
+		if (node == null){
+			return 0;
+		}
+		int l = Math.max(maxGain2(node.left),0);
+		int r = Math.max(maxGain2(node.right),0);
+
+
+		return 0;
+	}
+
 	public static void main(String[] args) {
 		_124_BinaryTreeMaximumPathSum test = new _124_BinaryTreeMaximumPathSum();
 		System.out.println(test.maxPathSum(TreeNode.stringToTreeNode("[1,2,3,4,5,6]")));

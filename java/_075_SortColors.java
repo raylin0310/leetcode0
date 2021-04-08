@@ -38,7 +38,7 @@ public class _075_SortColors {
 		if (nums == null || nums.length == 0) {
 			return;
 		}
-		// l 表示最后一个0的下一个位置，当下一次的数字是零的时候，就和left交换，并left往后移动一步
+		// l 表示最后一个0的下一个位置，当下一次的数字是零的时候，就和left交换，并left往后移动一步 ，所以l的含义是nextZeroPutIndex
 		int l = 0;
 		int r = nums.length - 1;
 		int i = 0;

@@ -73,7 +73,7 @@ public class _215_KthLargestElementInAnArray {
 
 	// 利用快排算法的partition，时间复杂度高于用最小堆，但是空间复杂度比用最小堆好
 	// 1,2,3,4  k=2 index=2 ,k=3 index=1  index=n-k
-	//     * time：最坏：O(n^2) 平均：O(nlogn)
+	//     * time：O(n)
 	//     * space : O(1)
 
 	public static int findKthLargest3(int[] nums, int k) {

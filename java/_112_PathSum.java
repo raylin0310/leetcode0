@@ -44,6 +44,7 @@ public class _112_PathSum {
 			return false;
 		}
 		if (root.left == null && root.right == null) {
+			// 当前节点是叶子节点
 			return sum == root.val;
 		}
 		return hasPathSum(root.left, sum - root.val) || hasPathSum(root.right, sum - root.val);

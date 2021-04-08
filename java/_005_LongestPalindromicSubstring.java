@@ -63,12 +63,13 @@ public class _005_LongestPalindromicSubstring {
 		}
 		String res = "";
 		for (int i = 0; i < s.length(); i++) {
-			res = helper(res,s, i, i);
-			res = helper(res,s, i, i + 1);
+			res = helper(res, s, i, i);
+			res = helper(res, s, i, i + 1);
 		}
 		return res;
 	}
-	public static String helper(String res,String s, int left, int right) {
+
+	public static String helper(String res, String s, int left, int right) {
 		while (left >= 0 && right < s.length() && s.charAt(left) == s.charAt(right)) {
 			left--;
 			right++;

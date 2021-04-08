@@ -33,6 +33,10 @@ public class _014_LongestCommonPrefix {
 	链接：https://leetcode-cn.com/problems/longest-common-prefix
 	著作权归领扣网络所有。商业转载请联系官方授权，非商业转载请注明出处。
 	 */
+	/*
+	 time:O(mn)其中 m 是字符串数组中的字符串的平均长度，n 是字符串的数量。最坏情况下，字符串数组中的每个字符串的每个字符都会被比较一次。
+	 space:O(1)
+	 */
 
 	public static String longestCommonPrefix(String[] strs) {
 		if (strs == null || strs.length == 0) {
@@ -41,7 +45,11 @@ public class _014_LongestCommonPrefix {
 		for (int i = 0; i < strs[0].length(); i++) {
 			char c = strs[0].charAt(i);
 			for (int j = 1; j < strs.length; j++) {
-				if (i == strs[j].length() || strs[j].charAt(i) != c ) {
+				/*
+				当其中一个字符串已经到末尾了，即最短的一个字符串
+				或者数组中某一个字符串不等于比较字符c的，就可以返回了
+				 */
+				if (strs[j].length() == i || strs[j].charAt(i) != c) {
 					return strs[0].substring(0, i);
 				}
 			}
@@ -50,8 +58,8 @@ public class _014_LongestCommonPrefix {
 	}
 
 	public static void main(String[] args) {
-		String[] strs = {"dog","racecar","car"};
+		String[] strs = {"dog", "racecar", "car"};
 		String[] strs2 = {"ab"};
-		System.out.println(longestCommonPrefix(strs2));
+		System.out.println(longestCommonPrefix(strs));
 	}
 }

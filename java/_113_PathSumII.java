@@ -54,10 +54,9 @@ public class _113_PathSumII {
 
 	public static void dfs(List<List<Integer>> res, List<Integer> path, TreeNode root, int sum) {
 		path.add(root.val);
-		if (root.left == null && root.right == null) {
-			if (root.val == sum) {
-				res.add(new ArrayList<>(path));
-			}
+		if (root.left == null && root.right == null && root.val == sum) {
+			// 叶子节点判断
+			res.add(new ArrayList<>(path));
 		}
 		if (root.left != null) {
 			dfs(res, path, root.left, sum - root.val);
