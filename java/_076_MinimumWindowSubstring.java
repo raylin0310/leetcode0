@@ -36,7 +36,7 @@ public class _076_MinimumWindowSubstring {
 		if (s == null || s == "" || t == null || t == "" || s.length() < t.length()) {
 			return "";
 		}
-		//用来统计t中每个字符出现次数
+		//用来统计t中每个字符出现次数 //可以用HashMap
 		int[] needs = new int[128];
 		//用来统计滑动窗口中每个字符出现次数
 		int[] window = new int[128];

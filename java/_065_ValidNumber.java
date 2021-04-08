@@ -78,5 +78,41 @@ public class _065_ValidNumber {
 
 	public static void main(String[] args) {
 		System.out.println(isNumber(".9"));
+		System.out.println(maxBox(20));
+		System.out.println(maxBox2(20));
 	}
+
+
+	static int maxBox(int beerNum) {
+		int allBox = beerNum;
+		int allGai = beerNum;
+		int allBeer = beerNum;
+		while (allBox >= 2 || allGai >= 4) {
+			int x = allBox % 2;
+			int y = (allBox - x) / 2;
+			int a = allGai % 4;
+			int b = (allGai - a) / 4;
+			allBox = x + y + b;
+			allGai = a + b + y;
+			allBeer += y + b;
+		}
+		return allBeer;
+	}
+
+	static int maxBox2(int beerNum) {
+		int allBox = beerNum;
+		int allGai = beerNum;
+		int allbear = beerNum;
+		while (allBox >= 2 || allGai >= 4) {
+			int x = allBox / 2; // 可以兑换到的新酒
+			int x1 = allBox % 2; //剩余的空瓶子
+			int y = allGai / 4; // 可以兑换到的新酒
+			int y1 = allGai % 4; //剩余的盖子
+			allBox = x + x1 + y;
+			allGai = x + y + y1;
+			allbear += x + y;
+		}
+		return allbear;
+	}
+
 }
