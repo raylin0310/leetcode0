@@ -76,6 +76,6 @@ public class _228_SummaryRanges {
 
 	public static void main(String[] args) {
 		int[] nums = {0, 2, 3, 4, 6, 8, 9};
-		AU.print(summaryRanges(nums));
+		ArrUtil.print(summaryRanges(nums));
 	}
 }

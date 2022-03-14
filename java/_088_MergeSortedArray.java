@@ -53,7 +53,7 @@ public class _088_MergeSortedArray {
 		int m = 3;
 		int n = 3;
 		merge(nums1, m, nums2, n);
-		AU.print(nums1);
+		ArrUtil.print(nums1);
 	}
 
 }

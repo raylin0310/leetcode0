@@ -77,7 +77,7 @@ public class _238_ProductOfArrayExceptSelf {
 
 	public static void main(String[] args) {
 		int[] nums = {1, 2, 3, 4};
-		AU.print(productExceptSelf(nums));
-		AU.print(productExceptSelf2(nums));
+		ArrUtil.print(productExceptSelf(nums));
+		ArrUtil.print(productExceptSelf2(nums));
 	}
 }

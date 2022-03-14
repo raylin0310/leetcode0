@@ -9,10 +9,11 @@ import java.util.List;
 
 /**
  * ArrayUtil
+ *
  * @author lilin
  * @date 2020-8-13 10:47
  */
-public final class AU {
+public final class ArrUtil {
 
 	public static void print(List nums) {
 		for (Object num : nums) {

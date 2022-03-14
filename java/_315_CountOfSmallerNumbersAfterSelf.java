@@ -116,7 +116,7 @@ public class _315_CountOfSmallerNumbersAfterSelf {
 		int[] nums2 = {-1};
 		_315_CountOfSmallerNumbersAfterSelf test = new _315_CountOfSmallerNumbersAfterSelf();
 		List<Integer> res = test.countSmaller(nums2);
-		AU.print(res);
+		ArrUtil.print(res);
 	}
 }
 

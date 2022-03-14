@@ -56,7 +56,7 @@ public class _179_LargestNumber {
 				return s2.compareTo(s1);
 			}
 		});
-		AU.print(res);
+		ArrUtil.print(res);
 		if (res[0].charAt(0) == '0') {
 			return "0";
 		}

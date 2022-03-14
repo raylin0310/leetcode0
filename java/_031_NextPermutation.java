@@ -87,6 +87,6 @@ public class _031_NextPermutation {
 	public static void main(String[] args) {
 		int[] nums = {1, 5, 1};
 		nextPermutation(nums);
-		AU.print(nums);
+		ArrUtil.print(nums);
 	}
 }

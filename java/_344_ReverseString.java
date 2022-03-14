@@ -5,8 +5,6 @@
  * @copyright Copyright 2018 Thunisoft, Inc. All rights reserved.
  */
 
-import swordOffer.AU;
-
 /**
  * 反转字符串
  * @author lilin
@@ -41,7 +39,7 @@ public class _344_ReverseString {
 		int l = 0;
 		int r = s.length - 1;
 		while (l < r) {
-			AU.swap(s, l++, r--);
+			ArrUtil.swap(s, l++, r--);
 		}
 	}
 
@@ -49,6 +47,6 @@ public class _344_ReverseString {
 	public static void main(String[] args) {
 		char[] s = {'H', 'a', 'n', 'n', 'a', 'h'};
 		reverseString(s);
-		AU.print(s);
+		ArrUtil.print(s);
 	}
 }

@@ -6,7 +6,6 @@
  */
 
 import java.util.ArrayList;
-import java.util.Deque;
 import java.util.List;
 
 /**
@@ -82,7 +81,7 @@ public class _131_PalindromePartitioning {
 	}
 
 	public static void main(String[] args) {
-		AU.print(partition("a"));
+		ArrUtil.print(partition("a"));
 		System.out.println("a".substring(1)); // ""
 	}
 }

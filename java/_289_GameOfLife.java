@@ -116,7 +116,7 @@ public class _289_GameOfLife {
 				{0, 0, 0}
 		};
 		gameOfLife(nums);
-		AU.print(nums);
+		ArrUtil.print(nums);
 	}
 }
 

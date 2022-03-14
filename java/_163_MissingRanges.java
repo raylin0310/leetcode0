@@ -85,6 +85,6 @@ public class _163_MissingRanges {
 
 	public static void main(String[] args) {
 		int[] nums = {0, 1, 6, 50, 75};
-		AU.print(findMissingRanges(nums, -10, 99));
+		ArrUtil.print(findMissingRanges(nums, -10, 99));
 	}
 }

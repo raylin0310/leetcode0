@@ -126,6 +126,6 @@ public class _349_IntersectionOfTwoArrays {
 	public static void main(String[] args) {
 		int[] nums1 = {4, 9, 5};
 		int[] nums2 = {9, 4, 9, 8, 4};
-		AU.print(intersection(nums1, nums2));
+		ArrUtil.print(intersection(nums1, nums2));
 	}
 }

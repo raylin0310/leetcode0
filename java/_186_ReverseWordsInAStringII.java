@@ -53,6 +53,6 @@ public class _186_ReverseWordsInAStringII {
 	public static void main(String[] args) {
 		char[] s = {'t','h','e',' ','s','k','y',' ','i','s',' ','b','l','u','e'};
 		reverseWords(s);
-		AU.print(s);
+		ArrUtil.print(s);
 	}
 }

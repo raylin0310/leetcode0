@@ -71,7 +71,7 @@ public class _113_PathSumII {
 	public static void main(String[] args) {
 
 		//AU.print(pathSum(TreeNode.stringToTreeNode("[5,4,8,11,null,13,4,7,2,null,null,5,1]"), 1));
-		AU.print(pathSum(TreeNode.stringToTreeNode("[0,1,1]"), 1));
+		ArrUtil.print(pathSum(TreeNode.stringToTreeNode("[0,1,1]"), 1));
 
 
 	}

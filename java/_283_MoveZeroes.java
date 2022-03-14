@@ -38,7 +38,7 @@ public class _283_MoveZeroes {
 		int j = 0;
 		for (int i = 0; i < nums.length; i++) {
 			if (nums[i] != 0) {
-				AU.swap(nums, i, j++);
+				ArrUtil.swap(nums, i, j++);
 			}
 		}
 	}
@@ -63,6 +63,6 @@ public class _283_MoveZeroes {
 	public static void main(String[] args) {
 		int[] nums = {0, 1, 0, 3, 12};
 		moveZeroes(nums);
-		AU.print(nums);
+		ArrUtil.print(nums);
 	}
 }

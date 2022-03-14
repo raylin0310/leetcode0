@@ -29,7 +29,7 @@ public class _280_WiggleSort {
 	public static void wiggleSort(int[] nums) {
 		for (int i = 1; i < nums.length; i++) {
 			if ((i % 2 == 1 && nums[i] < nums[i - 1]) || (i % 2 == 0 && nums[i] > nums[i - 1])) {
-				AU.swap(nums, i, i - 1);
+				ArrUtil.swap(nums, i, i - 1);
 			}
 		}
 	}
@@ -37,6 +37,6 @@ public class _280_WiggleSort {
 	public static void main(String[] args) {
 		int[] nums = {3, 5, 6, 5, 8, 9};
 		wiggleSort(nums);
-		AU.print(nums);
+		ArrUtil.print(nums);
 	}
 }

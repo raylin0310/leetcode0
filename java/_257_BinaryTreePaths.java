@@ -125,6 +125,6 @@ public class _257_BinaryTreePaths {
 				 / \   / \
 				1   3 6   9
 		 */
-		AU.print(binaryTreePaths(root));
+		ArrUtil.print(binaryTreePaths(root));
 	}
 }

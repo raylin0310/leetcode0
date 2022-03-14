@@ -22,7 +22,7 @@ public class QuickSort {
 	public int randomPartition(int[] a, int l, int r) {
 		// 随机
 		int i = random.nextInt(r - l + 1) + l;
-		AU.swap(a, i, r);
+		ArrUtil.swap(a, i, r);
 		return partition(a, l, r);
 	}
 
@@ -31,7 +31,7 @@ public class QuickSort {
 		int start = left;
 		for (int i = left; i <= right; i++) {
 			if (nums[i] <= pivot) {
-				AU.swap(nums, i, start++);
+				ArrUtil.swap(nums, i, start++);
 			}
 		}
 		return start - 1;
@@ -43,10 +43,10 @@ public class QuickSort {
 		int pos = left;
 		for (int i = left; i <= right; ++i) {
 			if (nums[i] <= pivot) {
-				AU.swap(nums, i, pos++);
+				ArrUtil.swap(nums, i, pos++);
 			}
 		}
-		AU.swap(nums, --pos, left);
+		ArrUtil.swap(nums, --pos, left);
 		return pos;
 	}
 
@@ -68,7 +68,7 @@ public class QuickSort {
 
 	public static void main(String[] args) {
 		int[] nums = {1, 9, 3, 9, 5,6,7,8,9};
-		System.out.println(partition(nums, 0, nums.length-1));
-		AU.print(nums);
+		System.out.println(partition(nums, 0, nums.length - 1));
+		ArrUtil.print(nums);
 	}
 }

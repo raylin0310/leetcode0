@@ -54,6 +54,6 @@ public class _167_TwoSum2InputArrayIsSorted {
 
 	public static void main(String[] args) {
 		int[] nums = {2, 7, 11, 15};
-		AU.print(twoSum(nums, 9));
+		ArrUtil.print(twoSum(nums, 9));
 	}
 }

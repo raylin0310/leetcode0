@@ -90,9 +90,9 @@ public class _324_WiggleSortII {
 		int index = 0;
 		while (index <= right) {
 			if (nums[newIndex(index, n)] > median) {
-				AU.swap(nums, newIndex(left++, n), newIndex(index++, n));
+				ArrUtil.swap(nums, newIndex(left++, n), newIndex(index++, n));
 			} else if (nums[newIndex(index, n)] < median) {
-				AU.swap(nums, newIndex(right--, n), newIndex(index, n));
+				ArrUtil.swap(nums, newIndex(right--, n), newIndex(index, n));
 			} else {
 				index++;
 			}
@@ -131,7 +131,7 @@ public class _324_WiggleSortII {
 		int start = left;
 		for (int i = left; i <= right; i++) {
 			if (nums[i] <= pivot) {
-				AU.swap(nums, i, start++);
+				ArrUtil.swap(nums, i, start++);
 			}
 		}
 		return start - 1;
@@ -140,7 +140,7 @@ public class _324_WiggleSortII {
 	public static void main(String[] args) {
 		int[] nums = {1, 2, 2, 3};
 		wiggleSort2(nums);
-		AU.print(nums);
+		ArrUtil.print(nums);
 
 		//测试partitionon
 

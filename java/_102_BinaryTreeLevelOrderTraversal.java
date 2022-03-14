@@ -93,7 +93,7 @@ public class _102_BinaryTreeLevelOrderTraversal {
 		right.left = rightl;
 		right.right = rightr;
 
-		AU.print(levelOrder2(root));
+		ArrUtil.print(levelOrder2(root));
 	}
 
 

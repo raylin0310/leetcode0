@@ -44,11 +44,11 @@ public class _075_SortColors {
 		int i = 0;
 		while (i <= r) {
 			if (nums[i] == 0) {
-				AU.swap(nums, i++, l++);
+				ArrUtil.swap(nums, i++, l++);
 			} else if (nums[i] == 1) {
 				i++;
 			} else {
-				AU.swap(nums, i, r--);
+				ArrUtil.swap(nums, i, r--);
 			}
 		}
 	}
@@ -57,7 +57,7 @@ public class _075_SortColors {
 	public static void main(String[] args) {
 		int[] nums = {2, 1, 1, 0, 1, 1, 0};
 		sortColors(nums);
-		AU.print(nums);
+		ArrUtil.print(nums);
 	}
 
 }

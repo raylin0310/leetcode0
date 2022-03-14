@@ -74,6 +74,6 @@ public class _145_BinaryTreePostorderTraversal {
 
 		right.left = rightl;
 		right.right = rightr;
-		AU.print(postorderTraversal2(root));
+		ArrUtil.print(postorderTraversal2(root));
 	}
 }
