@@ -79,7 +79,7 @@ public class _209_MinimumSizeSubarraySum {
     }
 
     public static void main(String[] args) {
-        int[] nums = {1, 2, 3,4,5};
+        int[] nums = {1, 2, 3, 4, 5};
         System.out.println(minSubArrayLen(15, nums));
         System.out.println(minSubArrayLen1(15, nums));
     }

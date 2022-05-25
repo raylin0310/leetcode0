@@ -7,6 +7,7 @@
 
 /**
  * _152_MaximumProductSubarray
+ *
  * @author lilin
  * @date 2020-8-28 15:12
  */
@@ -36,22 +37,36 @@ public class _152_MaximumProductSubarray {
 	 类似53题，但是负数乘以负数会变成正数，所以需要维护两个dp，一个最大值，一个最小值
 	 */
 
-	public static int maxProduct(int[] nums) {
-		int max = nums[0];
-		int min = nums[0];
-		int res = nums[0];
-		for (int i = 1; i < nums.length; i++) {
-			int maxTemp = Math.max(Math.max(max * nums[i], min * nums[i]), nums[i]);
-			int minTemp = Math.min(Math.min(max * nums[i], min * nums[i]), nums[i]);
-			max = maxTemp;
-			min = minTemp;
-			res = Math.max(res, max);
-		}
-		return res;
-	}
+    public static int maxProduct(int[] nums) {
+        int max = nums[0];
+        int min = nums[0];
+        int res = nums[0];
+        for (int i = 1; i < nums.length; i++) {
+            int maxTemp = Math.max(Math.max(max * nums[i], min * nums[i]), nums[i]);
+            int minTemp = Math.min(Math.min(max * nums[i], min * nums[i]), nums[i]);
+            max = maxTemp;
+            min = minTemp;
+            res = Math.max(res, max);
+        }
+        return res;
+    }
 
-	public static void main(String[] args) {
-		int[] nums = {2, 3, -2, 4};
-		System.out.println(maxProduct(nums));
-	}
+    public static void main(String[] args) {
+        int[] nums = {2, 3, -2, 4};
+        System.out.println(maxProduct(nums));
+    }
+
+    public static int maxProduct1(int[] nums) {
+        int max = nums[0];
+        int min = nums[0];
+        int res = nums[0];
+        for (int i = 1; i < nums.length; i++) {
+            int maxTemp = Math.max(Math.max(max * nums[i], min * nums[i]), nums[i]);
+            int minTemp = Math.max(Math.min(max * nums[i], min * nums[i]), nums[i]);
+            max = maxTemp;
+            min = minTemp;
+            res = Math.max(res, max);
+        }
+        return res;
+    }
 }
