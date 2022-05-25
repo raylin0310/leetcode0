@@ -57,13 +57,14 @@ public class _295_FindMedianFromDataStream {
 	 */
 
 
-	//低位
+	//低位。-3，-2，-1
 	private PriorityQueue<Long> small;
-	//高位
+	//高位 4，5，6
 	private PriorityQueue<Long> large;
 
 	/** initialize your data structure here. */
 	public _295_FindMedianFromDataStream() {
+		// 默认是最小堆
 		small = new PriorityQueue<>();
 		large = new PriorityQueue<>();
 	}
@@ -90,6 +91,10 @@ public class _295_FindMedianFromDataStream {
 		_295_FindMedianFromDataStream test = new _295_FindMedianFromDataStream();
 		test.addNum(1);
 		test.addNum(2);
+		test.addNum(3);
+		test.addNum(4);
+		test.addNum(5);
+		test.addNum(6);
 		System.out.println(test.findMedian());
 	}
 }
