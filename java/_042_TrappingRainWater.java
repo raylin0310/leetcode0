@@ -41,6 +41,7 @@ public class _042_TrappingRainWater {
 		int res = 0;
 		while (left < right) {
 			if (height[left] < height[right]) {
+                // 这里leftMax绝不可能大于rightMax，因为如果大于的话，那么会走到else里面去，从右往左计算了
 				leftMax = Math.max(leftMax, height[left]);
 				// 这里能计算的原理是，right_max比left_max大，那么决定水位高度的就是left_max
 				res += leftMax - height[left];
